@@ -1,0 +1,124 @@
+# Rules applied to server source code. These flag capability and behavior —
+# a match is evidence to review, not proof of malice; the grade weighs them.
+rules:
+  - id: MC001
+    name: shell-execution
+    category: dangerous-capability
+    severity: high
+    description: Executes shell commands (child_process / os.system / subprocess with shell).
+    context: code
+    extensions: [".js", ".mjs", ".cjs", ".ts", ".mts", ".cts", ".py"]
+    pattern: "child_process|\\bexecSync\\s*\\(|\\bexec\\s*\\(\\s*[`\"']|\\bspawnSync?\\s*\\(|os\\.system\\s*\\(|subprocess\\.(run|call|Popen|check_output)[^)]*shell\\s*=\\s*True|\\bcommands\\.getoutput"
+
+  - id: MC002
+    name: dynamic-code-eval
+    category: dangerous-capability
+    severity: high
+    description: Evaluates dynamically constructed code (eval / new Function / exec).
+    context: code
+    extensions: [".js", ".mjs", ".cjs", ".ts", ".mts", ".cts", ".py"]
+    pattern: "\\beval\\s*\\(|new\\s+Function\\s*\\(|\\bexec\\s*\\(\\s*[a-zA-Z_]\\w*\\s*[,)]|\\bcompile\\s*\\([^)]*['\"]exec['\"]"
+
+  - id: MC003
+    name: env-harvesting
+    category: data-exfiltration
+    severity: critical
+    description: Serializes or iterates the full environment (bulk credential harvesting pattern).
+    context: code
+    extensions: [".js", ".mjs", ".cjs", ".ts", ".mts", ".cts", ".py"]
+    pattern: "JSON\\.stringify\\s*\\(\\s*process\\.env|Object\\.(keys|entries|values)\\s*\\(\\s*process\\.env|dict\\s*\\(\\s*os\\.environ|os\\.environ\\.items\\s*\\(|\\{\\s*\\.\\.\\.\\s*process\\.env\\s*\\}"
+
+  - id: MC004
+    name: credential-file-access
+    category: data-exfiltration
+    severity: critical
+    description: Reads well-known credential files (SSH keys, cloud credentials, dotenv, npm tokens).
+    context: code
+    extensions: [".js", ".mjs", ".cjs", ".ts", ".mts", ".cts", ".py", ".sh"]
+    pattern: "\\.ssh\\/(id_rsa|id_ed25519|id_ecdsa)|\\.aws\\/credentials|\\.config\\/gh\\/hosts|\\.npmrc|\\.git-credentials|\\.docker\\/config\\.json|\\/etc\\/(passwd|shadow)"
+
+  - id: MC005
+    name: hardcoded-exfil-endpoint
+    category: data-exfiltration
+    severity: critical
+    description: Contains hardcoded webhook or paste-site endpoints commonly used for exfiltration.
+    context: code
+    pattern: "discord(app)?\\.com\\/api\\/webhooks|hooks\\.slack\\.com\\/services|api\\.telegram\\.org\\/bot|pastebin\\.com\\/api|requestbin|webhook\\.site|ngrok\\.(io|app)|burpcollaborator|oastify\\.com|interact\\.sh"
+
+  - id: MC006
+    name: base64-obfuscation
+    category: obfuscation
+    severity: medium
+    description: Decodes base64 content at runtime (common obfuscation for payloads and endpoints).
+    context: code
+    extensions: [".js", ".mjs", ".cjs", ".ts", ".mts", ".cts", ".py"]
+    pattern: "Buffer\\.from\\s*\\([^)]{1,200},\\s*[\"']base64[\"']\\)|\\batob\\s*\\(|base64\\.b64decode\\s*\\(|codecs\\.decode\\s*\\([^)]*base64"
+
+  - id: MC007
+    name: long-encoded-blob
+    category: obfuscation
+    severity: medium
+    description: Contains a suspiciously long encoded string literal (>400 chars of base64/hex).
+    context: code
+    caseSensitive: true
+    extensions: [".js", ".mjs", ".cjs", ".ts", ".mts", ".cts", ".py"]
+    pattern: "[\"'][A-Za-z0-9+/=]{400,}[\"']|[\"'](\\\\x[0-9a-fA-F]{2}){100,}[\"']"
+
+  - id: MC008
+    name: install-script-hook
+    category: supply-chain
+    severity: high
+    description: Package defines a preinstall/postinstall script — code runs on install, before any review.
+    context: code
+    extensions: [".json"]
+    pattern: "\"(pre|post)install\"\\s*:"
+
+  - id: MC009
+    name: reverse-shell-pattern
+    category: dangerous-capability
+    severity: critical
+    description: Contains reverse-shell constructs.
+    context: code
+    pattern: "\\/dev\\/tcp\\/|\\bnc\\s+(-[a-z]*e|--exec)|bash\\s+-i\\s+>&|socket\\.connect[^;]{0,120}(dup2|subprocess)|pty\\.spawn"
+
+  - id: MC010
+    name: download-and-execute
+    category: dangerous-capability
+    severity: critical
+    description: Downloads a file and makes it executable or pipes it to a shell.
+    context: code
+    pattern: "(curl|wget)[^|;&\\n]{0,200}\\|\\s*(ba)?sh|chmod\\s+\\+x[^;\\n]{0,100}(\\/tmp|\\$HOME|~\\/)|urlretrieve[^;\\n]{0,120}chmod"
+
+  - id: MC011
+    name: dynamic-import
+    category: obfuscation
+    severity: low
+    description: Imports modules from variables at runtime (can hide dependencies from static review).
+    context: code
+    extensions: [".js", ".mjs", ".cjs", ".ts", ".mts", ".cts", ".py"]
+    pattern: "require\\s*\\(\\s*[a-zA-Z_]\\w*\\s*\\)|importlib\\.import_module\\s*\\(\\s*[a-zA-Z_]|__import__\\s*\\(\\s*[a-zA-Z_]"
+
+  - id: MC012
+    name: raw-ip-endpoint
+    category: data-exfiltration
+    severity: medium
+    description: Makes HTTP requests to a hardcoded raw IP address.
+    context: code
+    pattern: "https?:\\/\\/(?:\\d{1,3}\\.){3}\\d{1,3}(?!\\d)(?!\\.0\\.1)"
+
+  - id: MC013
+    name: keylogger-clipboard
+    category: data-exfiltration
+    severity: high
+    description: Accesses clipboard or keyboard input streams (unusual for an MCP server).
+    context: code
+    extensions: [".js", ".mjs", ".cjs", ".ts", ".mts", ".cts", ".py"]
+    pattern: "pynput|keyboard\\.(Listener|read_key)|clipboard\\.(read|paste)|navigator\\.clipboard\\.readText|pyperclip\\.paste"
+
+  - id: MC014
+    name: crypto-mining
+    category: dangerous-capability
+    severity: critical
+    description: Contains cryptocurrency mining indicators.
+    context: code
+    pattern: "stratum\\+tcp:\\/\\/|coinhive|xmrig|minergate|cryptonight"

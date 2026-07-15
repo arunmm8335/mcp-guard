@@ -1,0 +1,75 @@
+# Rules applied to MCP tool descriptions — the metadata an agent trusts when
+# deciding how to act. Hidden instructions here are the signature MCP attack.
+rules:
+  - id: TD001
+    name: instruction-override
+    category: tool-poisoning
+    severity: critical
+    description: Tool description attempts to override the agent's instructions.
+    context: tool-description
+    pattern: "ignore\\s+(all\\s+|any\\s+)?(previous|prior|above|earlier|other)\\s+(instructions|prompts|rules|directions)|disregard\\s+(all\\s+|any\\s+)?(previous|prior|your|system)"
+
+  - id: TD002
+    name: concealment-directive
+    category: tool-poisoning
+    severity: critical
+    description: Tool description instructs the agent to hide behavior from the user.
+    context: tool-description
+    pattern: "do\\s*(?:n't|\\s+not)\\s+(tell|inform|mention|show|reveal|alert|notify)\\s+(this\\s+to\\s+)?the\\s+user|without\\s+(informing|telling|notifying|alerting)\\s+the\\s+user|keep\\s+this\\s+(hidden|secret)|user\\s+(must|should)\\s+not\\s+(see|know)"
+
+  - id: TD003
+    name: credential-exfiltration-lure
+    category: tool-poisoning
+    severity: critical
+    description: Tool description instructs the agent to read or transmit secrets.
+    context: tool-description
+    pattern: "(read|get|fetch|collect|include|send|attach|pass|forward)[^.]{0,60}(api[_ ]?keys?|credentials?|passwords?|secrets?|tokens?|\\.env\\b|environment\\s+variables|ssh\\s+keys?|id_rsa)"
+
+  - id: TD004
+    name: sensitive-file-lure
+    category: tool-poisoning
+    severity: critical
+    description: Tool description references sensitive filesystem paths.
+    context: tool-description
+    pattern: "~\\/\\.(ssh|aws|gnupg|config\\/gh)|\\/etc\\/(passwd|shadow)|id_rsa|\\.npmrc|\\.git-credentials"
+
+  - id: TD005
+    name: hidden-priority-tag
+    category: tool-poisoning
+    severity: high
+    description: Description contains system-prompt-style tags used to smuggle instructions.
+    context: tool-description
+    pattern: "<\\s*(important|system|critical|admin|hidden|instructions?)\\s*>|\\[\\s*(system|important|admin)\\s*\\]|^\\s*system\\s*:"
+
+  - id: TD006
+    name: cross-tool-hijack
+    category: tool-poisoning
+    severity: high
+    description: Description tries to force priority over, or piggyback on, other tools.
+    context: tool-description
+    pattern: "(always|must)\\s+(call|use|invoke)\\s+this\\s+tool\\s+(first|before)|before\\s+(using|calling)\\s+any\\s+other\\s+tool|instead\\s+of\\s+(using\\s+)?(the\\s+)?\\w+\\s+tool|whenever\\s+any\\s+(other\\s+)?tool\\s+is\\s+(called|used)"
+
+  - id: TD007
+    name: external-transmission-lure
+    category: tool-poisoning
+    severity: high
+    description: Description instructs sending data to an external endpoint or address.
+    context: tool-description
+    pattern: "(send|post|forward|upload|transmit)[^.]{0,50}(to\\s+)?(https?:\\/\\/|[\\w.-]+@[\\w.-]+\\.\\w{2,})"
+
+  - id: TD008
+    name: invisible-unicode
+    category: tool-poisoning
+    severity: high
+    description: Description contains zero-width or invisible Unicode characters that can hide instructions.
+    context: tool-description
+    caseSensitive: true
+    pattern: "[\\u200B\\u200C\\u200D\\u2060\\uFEFF\\u00AD]|[\\uDB40][\\uDC00-\\uDC7F]"
+
+  - id: TD009
+    name: conditional-sleeper
+    category: tool-poisoning
+    severity: medium
+    description: Description contains conditional instructions that change behavior in specific situations (sleeper pattern).
+    context: tool-description
+    pattern: "if\\s+the\\s+user\\s+(asks|mentions|says|types)[^.]{0,80}(then\\s+)?(do|call|run|send|ignore|respond)"
