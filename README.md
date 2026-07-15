@@ -43,6 +43,35 @@ mcpguard scan ./my-server --json
 mcpguard scan ./my-server --fail-on C
 ```
 
+### Lock & verify (rug-pull detection)
+
+Scanning tells you a server is safe *today*. The bigger risk is a **rug pull**: a server you already approved silently changing its tool descriptions or code afterwards. `lock` pins the approved state to a content hash; `verify` re-scans and fails when anything drifted.
+
+```bash
+# Approve servers: pins code + tool descriptions to mcpguard.lock.json
+mcpguard lock ./my-server npm:some-mcp-server owner/repo
+
+# In CI / before startup: re-scan every locked server and fail on drift
+mcpguard verify
+mcpguard verify --json          # machine-readable diff
+mcpguard verify --file custom.lock.json
+```
+
+`verify` exits non-zero if any locked server changed. A changed or removed **tool description** is flagged as a `RUG PULL` (the metadata your agent trusts was altered after approval); code edits, added/removed files, and grade regressions are reported too.
+
+```
+mcpguard verify
+
+ RUG PULL  ./my-server
+           tool description changed: get_forecast
+           code changed: index.js
+           grade A -> F
+
+1 server(s) drifted from the lockfile. Review before trusting them.
+```
+
+Commit `mcpguard.lock.json` to your repo so every teammate and CI run enforces the same approved set.
+
 ### Example
 
 ```
@@ -88,9 +117,8 @@ Test fixtures cover a benign server (expects grade A), a tool-poisoned server, a
 
 ## Roadmap
 
-This is Phase 1 (the scanner). Planned next:
+Phase 1 (scanner) and Phase 2 (lockfile + rug-pull `verify`) are implemented. Planned next:
 
-- **Lockfile + CI gate** — pin every server to a content hash; fail when code or tool descriptions change from what was approved (rug-pull defense).
 - **Trust registry + monitoring** — continuously re-scan the ecosystem, archive versions, alert on changes.
 - **Runtime proxy** — enforce the lockfile and strip injected instructions at call time, with an audit log.
 

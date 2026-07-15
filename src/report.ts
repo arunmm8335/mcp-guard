@@ -1,4 +1,5 @@
 import pc from "picocolors";
+import type { LockDiff } from "./lock.js";
 import type { Finding, ScanResult, Severity } from "./types.js";
 
 const SEVERITY_ORDER: Severity[] = ["critical", "high", "medium", "low"];
@@ -59,6 +60,83 @@ export function renderReport(result: ScanResult): string {
   if (result.grade === "F" || result.grade === "D") {
     lines.push(
       pc.red("Do not install this server without a manual security review."),
+    );
+  }
+  lines.push("");
+  return lines.join("\n");
+}
+
+/**
+ * Render the result of `verify`. `unlocked` lists targets present in the
+ * lockfile that could not be re-resolved (network/removed), and `unpinned`
+ * lists scanned targets not in the lockfile.
+ */
+export function renderVerifyReport(
+  diffs: LockDiff[],
+  errors: { target: string; message: string }[] = [],
+): string {
+  const lines: string[] = [];
+  lines.push("");
+  lines.push(pc.bold("mcpguard verify"));
+  lines.push("");
+
+  const changed = diffs.filter((d) => !d.clean);
+  const clean = diffs.filter((d) => d.clean);
+
+  for (const d of changed) {
+    const rugPull = d.toolChanges.some(
+      (c) => c.type === "modified" || c.type === "removed",
+    );
+    const header = rugPull
+      ? pc.bgRed(pc.white(" RUG PULL "))
+      : pc.yellow(" CHANGED  ");
+    lines.push(`${header} ${pc.bold(d.target)}`);
+
+    for (const c of d.toolChanges) {
+      const verb =
+        c.type === "modified"
+          ? pc.red("tool description changed")
+          : c.type === "removed"
+            ? pc.red("tool removed")
+            : pc.yellow("tool added");
+      lines.push(`           ${verb}: ${pc.cyan(c.name)}`);
+    }
+    for (const f of d.filesModified) {
+      lines.push(`           ${pc.red("code changed")}: ${pc.cyan(f)}`);
+    }
+    for (const f of d.filesAdded) {
+      lines.push(`           ${pc.yellow("file added")}: ${pc.cyan(f)}`);
+    }
+    for (const f of d.filesRemoved) {
+      lines.push(`           ${pc.yellow("file removed")}: ${pc.cyan(f)}`);
+    }
+    if (d.gradeChange) {
+      const worse =
+        "ABCDF".indexOf(d.gradeChange.to) > "ABCDF".indexOf(d.gradeChange.from);
+      const arrow = `${d.gradeChange.from} -> ${d.gradeChange.to}`;
+      lines.push(
+        `           grade ${worse ? pc.red(arrow) : pc.yellow(arrow)}`,
+      );
+    }
+    lines.push("");
+  }
+
+  for (const e of errors) {
+    lines.push(`${pc.yellow(" SKIPPED  ")} ${pc.bold(e.target)}`);
+    lines.push(`           ${pc.dim(e.message)}`);
+    lines.push("");
+  }
+
+  if (clean.length > 0) {
+    lines.push(pc.green(`${clean.length} server(s) unchanged since lock.`));
+  }
+  if (changed.length === 0 && errors.length === 0) {
+    lines.push(pc.green("All locked servers match. No drift detected."));
+  } else if (changed.length > 0) {
+    lines.push(
+      pc.red(
+        `${changed.length} server(s) drifted from the lockfile. Review before trusting them.`,
+      ),
     );
   }
   lines.push("");

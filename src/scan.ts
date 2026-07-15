@@ -8,10 +8,31 @@ const SEVERITY_WEIGHT = { critical: 25, high: 12, medium: 5, low: 2 } as const;
 
 const EVIDENCE_MAX = 160;
 
-export function scan(target: string, rulesDir?: string): ScanResult {
-  const rules = loadRules(rulesDir);
+export interface LoadedServer {
+  /** Local directory the source was resolved to. */
+  resolvedPath: string;
+  files: SourceFile[];
+}
+
+/**
+ * Resolve a target and read its source files. Separated from {@link analyze}
+ * so callers (e.g. `lock`/`verify`) can resolve once and both scan and hash
+ * the same file set without cloning or unpacking twice.
+ */
+export function loadServer(target: string): LoadedServer {
   const resolved = resolveTarget(target);
   const files = collectSourceFiles(resolved.path);
+  return { resolvedPath: resolved.path, files };
+}
+
+/** Run the rule packs over an already-loaded file set and grade the result. */
+export function analyze(
+  target: string,
+  resolvedPath: string,
+  files: SourceFile[],
+  rulesDir?: string,
+): ScanResult {
+  const rules = loadRules(rulesDir);
   const tools = extractTools(files);
 
   const findings: Finding[] = [
@@ -22,13 +43,18 @@ export function scan(target: string, rulesDir?: string): ScanResult {
   const { score, grade } = computeGrade(findings);
   return {
     target,
-    resolvedPath: resolved.path,
+    resolvedPath,
     filesScanned: files.length,
     tools,
     findings,
     score,
     grade,
   };
+}
+
+export function scan(target: string, rulesDir?: string): ScanResult {
+  const { resolvedPath, files } = loadServer(target);
+  return analyze(target, resolvedPath, files, rulesDir);
 }
 
 function scanToolDescriptions(
