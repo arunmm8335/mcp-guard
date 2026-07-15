@@ -1,4 +1,8 @@
 node_modules/
 dist/
+# Test fixtures intentionally include a compiled dist/ to exercise scanning
+# of packages that ship only build output.
+!test/fixtures/**/dist/
+!test/fixtures/**/dist/**
 *.tgz
 .DS_Store
