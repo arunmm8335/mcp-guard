@@ -9,6 +9,22 @@ It works on a local directory, a published npm package, or a GitHub repo, and pr
 
 > Why this exists: a July 2026 scan of 36,527 public MCP servers found ~67% carry serious security flaws, and 9 of 11 public registries accepted a proof-of-concept malicious server. MCP adoption exploded before its safety layer existed. mcpguard is the start of that layer.
 
+### Tried against real servers
+
+Run against popular published servers (as of July 2026), the scanner grades clean servers A and surfaces exactly the behaviors worth a human's attention:
+
+| Server (npm) | Grade | Notes |
+| --- | --- | --- |
+| `@modelcontextprotocol/server-filesystem` | A | 14 tools extracted, no findings |
+| `@notionhq/notion-mcp-server` | A | 33 tools, no findings |
+| `firecrawl-mcp` | A | 26 tools, no findings |
+| `@upstash/context7-mcp` | A | clean |
+| `figma-developer-mcp` | A | clean |
+| `@modelcontextprotocol/server-everything` | B | flags a tool that serializes `process.env` |
+| `mcp-server-fetch` (an npx canary) | B | flags a `postinstall` hook + host fingerprinting |
+
+Tuning these runs drove several precision fixes now covered by tests: scanning compiled `dist/` when a package ships no `src/`, ignoring test files and commented-out code, and not misreading regex `.exec()`, loopback IPs, or embedded base64 images as attacks.
+
 ## Install / run
 
 ```bash
@@ -71,6 +87,25 @@ mcpguard verify
 ```
 
 Commit `mcpguard.lock.json` to your repo so every teammate and CI run enforces the same approved set.
+
+## Use in CI (GitHub Actions)
+
+This repo ships a composite action. Commit your `mcpguard.lock.json`, then fail the build whenever a dependency server drifts:
+
+```yaml
+- uses: your-org/mcpguard@v0
+  with:
+    mode: verify          # default; checks mcpguard.lock.json for drift
+
+# or grade a specific server on every PR:
+- uses: your-org/mcpguard@v0
+  with:
+    mode: scan
+    target: npm:some-mcp-server
+    fail-on: C
+```
+
+Or call the CLI directly in any pipeline: `npx mcpguard verify`.
 
 ### Example
 

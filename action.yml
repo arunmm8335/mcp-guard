@@ -1,0 +1,45 @@
+name: mcpguard
+description: >-
+  Scan or verify MCP servers for tool-poisoning and supply-chain risks in CI.
+  In verify mode it fails the build when any locked server's code or tool
+  descriptions drift from what was approved (rug-pull detection).
+branding:
+  icon: shield
+  color: red
+
+inputs:
+  mode:
+    description: "scan (grade a target) or verify (check the lockfile for drift)"
+    required: false
+    default: verify
+  target:
+    description: "Server to scan (scan mode): a path, npm:<package>, or owner/repo"
+    required: false
+  fail-on:
+    description: "scan mode: fail at this grade or worse (A/B/C/D/F)"
+    required: false
+    default: D
+  lockfile:
+    description: "verify mode: path to the lockfile"
+    required: false
+    default: mcpguard.lock.json
+  version:
+    description: "mcpguard version to run"
+    required: false
+    default: latest
+
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      run: |
+        set -euo pipefail
+        if [ "${{ inputs.mode }}" = "scan" ]; then
+          if [ -z "${{ inputs.target }}" ]; then
+            echo "mcpguard: 'target' is required when mode=scan" >&2
+            exit 2
+          fi
+          npx --yes "mcpguard@${{ inputs.version }}" scan "${{ inputs.target }}" --fail-on "${{ inputs.fail-on }}"
+        else
+          npx --yes "mcpguard@${{ inputs.version }}" verify --file "${{ inputs.lockfile }}"
+        fi

@@ -17,7 +17,10 @@ rules:
     description: Evaluates dynamically constructed code (eval / new Function / exec).
     context: code
     extensions: [".js", ".mjs", ".cjs", ".ts", ".mts", ".cts", ".py"]
-    pattern: "\\beval\\s*\\(|new\\s+Function\\s*\\(|\\bexec\\s*\\(\\s*[a-zA-Z_]\\w*\\s*[,)]|\\bcompile\\s*\\([^)]*['\"]exec['\"]"
+    # `(?<![.\w])` avoids method calls like `regex.exec(str)` and `foo.eval(x)`
+    # (regex `.exec()` is standard JS and not dynamic evaluation). The Python
+    # `exec(` clause requires a bare identifier argument.
+    pattern: "(?<![.\\w])eval\\s*\\(|new\\s+Function\\s*\\(|(?<![.\\w])exec\\s*\\(\\s*[a-zA-Z_]\\w*\\s*[,)]|(?<![.\\w])compile\\s*\\([^)]*['\"]exec['\"]"
 
   - id: MC003
     name: env-harvesting
@@ -62,7 +65,10 @@ rules:
     context: code
     caseSensitive: true
     extensions: [".js", ".mjs", ".cjs", ".ts", ".mts", ".cts", ".py"]
-    pattern: "[\"'][A-Za-z0-9+/=]{400,}[\"']|[\"'](\\\\x[0-9a-fA-F]{2}){100,}[\"']"
+    # Skips known embedded-media magic bytes (PNG iVBOR, JPEG /9j/, GIF R0lGOD,
+    # WEBP UklGR, ICO AAABAA, PDF JVBER, gzip H4sI) — those are benign assets,
+    # not hidden payloads.
+    pattern: "[\"'](?!iVBORw0KGgo|/9j/|R0lGOD|UklGR|AAABAA|JVBERi0|H4sI)[A-Za-z0-9+/=]{400,}[\"']|[\"'](\\\\x[0-9a-fA-F]{2}){100,}[\"']"
 
   - id: MC008
     name: install-script-hook
@@ -102,9 +108,11 @@ rules:
     name: raw-ip-endpoint
     category: data-exfiltration
     severity: medium
-    description: Makes HTTP requests to a hardcoded raw IP address.
+    description: Makes HTTP requests to a hardcoded public raw IP address.
     context: code
-    pattern: "https?:\\/\\/(?:\\d{1,3}\\.){3}\\d{1,3}(?!\\d)(?!\\.0\\.1)"
+    # Excludes loopback (127.x, ::1), any-host 0.0.0.0, and RFC1918 private
+    # ranges (10.x, 192.168.x, 172.16-31.x) — those are local/dev, not exfil.
+    pattern: "https?:\\/\\/(?!127\\.|0\\.0\\.0\\.0|10\\.|192\\.168\\.|172\\.(?:1[6-9]|2\\d|3[01])\\.)(?:\\d{1,3}\\.){3}\\d{1,3}(?!\\d)"
 
   - id: MC013
     name: keylogger-clipboard
@@ -122,3 +130,12 @@ rules:
     description: Contains cryptocurrency mining indicators.
     context: code
     pattern: "stratum\\+tcp:\\/\\/|coinhive|xmrig|minergate|cryptonight"
+
+  - id: MC015
+    name: system-recon
+    category: data-exfiltration
+    severity: medium
+    description: Fingerprints the host machine (hostname, user, network interfaces) — common in phone-home / beacon payloads.
+    context: code
+    extensions: [".js", ".mjs", ".cjs", ".ts", ".mts", ".cts", ".py"]
+    pattern: "os\\.hostname\\s*\\(|os\\.userInfo\\s*\\(|os\\.networkInterfaces\\s*\\(|socket\\.gethostname\\s*\\(|platform\\.uname\\s*\\(|getpass\\.getuser\\s*\\("

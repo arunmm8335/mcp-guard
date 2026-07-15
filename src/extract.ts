@@ -13,9 +13,28 @@ import type { ToolDescriptor } from "./types.js";
  * 3. Python FastMCP: `@mcp.tool()` decorated functions with docstrings,
  *    and `Tool(name=..., description=...)` constructors.
  */
+/**
+ * Files that are never MCP tool manifests but do carry top-level
+ * `name` + `description` fields — reading those as "tools" is a false positive.
+ */
+const NON_MANIFEST_JSON = new Set([
+  "package.json",
+  "package-lock.json",
+  "tsconfig.json",
+  "jsconfig.json",
+  "composer.json",
+  "manifest.json",
+]);
+
+function basename(path: string): string {
+  const i = Math.max(path.lastIndexOf("/"), path.lastIndexOf("\\"));
+  return path.slice(i + 1);
+}
+
 export function extractTools(files: SourceFile[]): ToolDescriptor[] {
   const tools: ToolDescriptor[] = [];
   for (const file of files) {
+    if (NON_MANIFEST_JSON.has(basename(file.path))) continue;
     if (/\.(js|mjs|cjs|ts|mts|cts|jsx|tsx|json)$/.test(file.path)) {
       extractFromJsLike(file, tools);
     } else if (file.path.endsWith(".py")) {
@@ -47,11 +66,12 @@ function unquote(raw: string): string {
 function extractFromJsLike(file: SourceFile, out: ToolDescriptor[]) {
   const { content } = file;
 
+  // Call names across the common SDKs: MCP TS SDK (`tool`, `registerTool`),
+  // FastMCP / fastmcp.js and others (`addTool`).
+  const CALL = `(?:tool|registerTool|addTool)`;
+
   // Style 1a: server.tool("name", "description", ...)
-  const toolCall = new RegExp(
-    `\\.(?:tool|registerTool)\\(\\s*(${STR})\\s*,\\s*(${STR})`,
-    "g",
-  );
+  const toolCall = new RegExp(`\\.${CALL}\\(\\s*(${STR})\\s*,\\s*(${STR})`, "g");
   for (const m of content.matchAll(toolCall)) {
     out.push({
       name: unquote(m[1]),
@@ -63,25 +83,48 @@ function extractFromJsLike(file: SourceFile, out: ToolDescriptor[]) {
 
   // Style 1b: .registerTool("name", { ... description: "..." ... })
   const registerObj = new RegExp(
-    `\\.(?:tool|registerTool)\\(\\s*(${STR})\\s*,\\s*\\{([^]{0,2000}?)\\}`,
+    `\\.${CALL}\\(\\s*(${STR})\\s*,\\s*\\{([^]{0,2000}?)\\}`,
     "g",
   );
   for (const m of content.matchAll(registerObj)) {
     const desc = new RegExp(`description\\s*:\\s*(${STR})`).exec(m[2]);
-    if (desc) {
+    // Fall back to the human-readable `title` when there's no `description`
+    // (some servers put the summary only in `annotations.title`).
+    const title = new RegExp(`title\\s*:\\s*(${STR})`).exec(m[2]);
+    const chosen = desc ?? title;
+    if (chosen) {
       out.push({
         name: unquote(m[1]),
-        description: unquote(desc[1]),
+        description: unquote(chosen[1]),
         file: file.path,
         line: lineAt(content, m.index ?? 0),
       });
     }
   }
 
+  // Style 1c: .addTool({ name: "...", description|title: "..." }) — single
+  // object argument (FastMCP style), no leading name string.
+  const addToolObj = new RegExp(`\\.${CALL}\\(\\s*\\{([^]{0,2000}?)\\}`, "g");
+  for (const m of content.matchAll(addToolObj)) {
+    const nameM = new RegExp(`name\\s*:\\s*(${STR})`).exec(m[1]);
+    if (!nameM) continue;
+    const desc = new RegExp(`description\\s*:\\s*(${STR})`).exec(m[1]);
+    const title = new RegExp(`title\\s*:\\s*(${STR})`).exec(m[1]);
+    const chosen = desc ?? title;
+    out.push({
+      name: unquote(nameM[1]),
+      description: chosen ? unquote(chosen[1]) : "",
+      file: file.path,
+      line: lineAt(content, m.index ?? 0),
+    });
+  }
+
   // Style 2: { name: "...", ... description: "..." } object literals
-  // (covers ListTools handler results and JSON tool manifests).
+  // (covers ListTools handler results and JSON tool manifests). The gap must
+  // not cross a `}` — that would bridge a server/config `name` (e.g.
+  // `new McpServer({ name, version })`) onto a later tool's description.
   const objLiteral = new RegExp(
-    `name\\s*:\\s*(${STR})\\s*,([^]{0,1500}?)description\\s*:\\s*(${STR})`,
+    `name\\s*:\\s*(${STR})\\s*,([^}]{0,800}?)description\\s*:\\s*(${STR})`,
     "g",
   );
   for (const m of content.matchAll(objLiteral)) {
@@ -96,7 +139,7 @@ function extractFromJsLike(file: SourceFile, out: ToolDescriptor[]) {
   // JSON manifests use `"name": "...", ... "description": "..."`.
   if (file.path.endsWith(".json")) {
     const jsonPair = new RegExp(
-      `"name"\\s*:\\s*(${STR})\\s*,([^]{0,1500}?)"description"\\s*:\\s*(${STR})`,
+      `"name"\\s*:\\s*(${STR})\\s*,([^}]{0,800}?)"description"\\s*:\\s*(${STR})`,
       "g",
     );
     for (const m of content.matchAll(jsonPair)) {

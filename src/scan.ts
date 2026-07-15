@@ -96,6 +96,7 @@ function scanCode(files: SourceFile[], rules: CompiledRule[]): Finding[] {
       for (const rule of applicable) {
         const match = rule.regex.exec(lines[i]);
         if (!match) continue;
+        if (isInComment(lines[i], match.index ?? 0, ext)) continue;
         findings.push({
           ruleId: rule.id,
           ruleName: rule.name,
@@ -110,6 +111,30 @@ function scanCode(files: SourceFile[], rules: CompiledRule[]): Finding[] {
     }
   }
   return findings;
+}
+
+const HASH_COMMENT_EXT = new Set([".py", ".sh"]);
+
+/**
+ * Heuristic: is the match inside a comment? Commented-out code doesn't
+ * execute, so flagging a `// eval(...)` line is a false positive. Handles
+ * line comments (`//`, `#`) and block-comment continuation lines (`*`, `/*`).
+ */
+function isInComment(line: string, matchIndex: number, ext: string): boolean {
+  const trimmed = line.trimStart();
+  if (trimmed.startsWith("*") || trimmed.startsWith("/*")) return true;
+  const commentStart = HASH_COMMENT_EXT.has(ext)
+    ? line.indexOf("#")
+    : findSlashComment(line);
+  return commentStart !== -1 && commentStart <= matchIndex;
+}
+
+/** Index of a `//` line comment, ignoring the `//` inside `://` (URLs). */
+function findSlashComment(line: string): number {
+  for (let i = 0; i < line.length - 1; i++) {
+    if (line[i] === "/" && line[i + 1] === "/" && line[i - 1] !== ":") return i;
+  }
+  return -1;
 }
 
 export function computeGrade(findings: Finding[]): {

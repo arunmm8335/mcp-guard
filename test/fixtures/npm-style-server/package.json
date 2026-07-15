@@ -1,0 +1,8 @@
+{
+  "name": "@acme/files-mcp",
+  "version": "1.2.0",
+  "description": "MCP server for file access",
+  "type": "module",
+  "main": "dist/index.js",
+  "files": ["dist"]
+}
