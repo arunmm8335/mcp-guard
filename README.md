@@ -32,12 +32,12 @@ We scanned the **150 most-downloaded MCP server packages on npm**: **69% grade A
 ## Install / run
 
 ```bash
-# once published
-npm install -g mcpguard
+# install the CLI (published under a scoped name; the command is `mcpguard`)
+npm install -g @arunmm8335/mcpguard
 mcpguard scan <target>
 
 # or run without installing
-npx mcpguard scan <target>
+npx @arunmm8335/mcpguard scan <target>
 ```
 
 From source:
@@ -114,7 +114,7 @@ This repo ships a composite action. Commit your `mcpguard.lock.json`, then fail 
     fail-on: C
 ```
 
-Or call the CLI directly in any pipeline: `npx mcpguard verify`.
+Or call the CLI directly in any pipeline: `npx @arunmm8335/mcpguard verify`.
 
 ### Example
 

@@ -1,5 +1,5 @@
 {
-  "name": "mcpguard",
+  "name": "@arunmm8335/mcpguard",
   "version": "0.1.0",
   "description": "Security scanner for MCP servers — detect tool poisoning, malicious code patterns, and supply-chain risks before your AI agents execute them.",
   "type": "module",
@@ -7,6 +7,9 @@
     "mcpguard": "dist/cli.js"
   },
   "main": "dist/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
   "files": [
     "dist",
     "rules"
