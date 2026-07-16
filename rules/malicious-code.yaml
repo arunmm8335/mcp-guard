@@ -5,10 +5,21 @@ rules:
     name: shell-execution
     category: dangerous-capability
     severity: high
-    description: Executes shell commands (child_process / os.system / subprocess with shell).
+    description: Runs a shell (child_process exec / os.system / subprocess shell=True / shell:true) — command-injection surface.
     context: code
     extensions: [".js", ".mjs", ".cjs", ".ts", ".mts", ".cts", ".py"]
-    pattern: "child_process|\\bexecSync\\s*\\(|\\bexec\\s*\\(\\s*[`\"']|\\bspawnSync?\\s*\\(|os\\.system\\s*\\(|subprocess\\.(run|call|Popen|check_output)[^)]*shell\\s*=\\s*True|\\bcommands\\.getoutput"
+    # Only real shell invocations. Bare `child_process` imports and `spawn()` of
+    # a fixed binary (normal for stdio servers) are the weaker MC016 signal.
+    pattern: "\\bexecSync\\s*\\(|\\bexec\\s*\\(\\s*[`\"']|os\\.system\\s*\\(|subprocess\\.(run|call|Popen|check_output)[^)]*shell\\s*=\\s*True|\\bcommands\\.getoutput|shell\\s*:\\s*true"
+
+  - id: MC016
+    name: subprocess-capability
+    category: dangerous-capability
+    severity: low
+    description: Imports a subprocess module or spawns a child process (common for stdio servers; noted for awareness).
+    context: code
+    extensions: [".js", ".mjs", ".cjs", ".ts", ".mts", ".cts", ".py"]
+    pattern: "(require\\s*\\(\\s*['\"](?:node:)?child_process['\"]|from\\s+['\"](?:node:)?child_process['\"]|import\\s+subprocess|\\bspawnSync?\\s*\\()"
 
   - id: MC002
     name: dynamic-code-eval
@@ -35,6 +46,7 @@ rules:
     name: credential-file-access
     category: data-exfiltration
     severity: critical
+    disqualifying: true
     description: Reads well-known credential files (SSH keys, cloud credentials, dotenv, npm tokens).
     context: code
     extensions: [".js", ".mjs", ".cjs", ".ts", ".mts", ".cts", ".py", ".sh"]
@@ -44,6 +56,7 @@ rules:
     name: hardcoded-exfil-endpoint
     category: data-exfiltration
     severity: critical
+    disqualifying: true
     description: Contains hardcoded webhook or paste-site endpoints commonly used for exfiltration.
     context: code
     pattern: "discord(app)?\\.com\\/api\\/webhooks|hooks\\.slack\\.com\\/services|api\\.telegram\\.org\\/bot|pastebin\\.com\\/api|requestbin|webhook\\.site|ngrok\\.(io|app)|burpcollaborator|oastify\\.com|interact\\.sh"
@@ -51,7 +64,7 @@ rules:
   - id: MC006
     name: base64-obfuscation
     category: obfuscation
-    severity: medium
+    severity: low
     description: Decodes base64 content at runtime (common obfuscation for payloads and endpoints).
     context: code
     extensions: [".js", ".mjs", ".cjs", ".ts", ".mts", ".cts", ".py"]
@@ -83,6 +96,7 @@ rules:
     name: reverse-shell-pattern
     category: dangerous-capability
     severity: critical
+    disqualifying: true
     description: Contains reverse-shell constructs.
     context: code
     pattern: "\\/dev\\/tcp\\/|\\bnc\\s+(-[a-z]*e|--exec)|bash\\s+-i\\s+>&|socket\\.connect[^;]{0,120}(dup2|subprocess)|pty\\.spawn"
@@ -91,6 +105,7 @@ rules:
     name: download-and-execute
     category: dangerous-capability
     severity: critical
+    disqualifying: true
     description: Downloads a file and makes it executable or pipes it to a shell.
     context: code
     pattern: "(curl|wget)[^|;&\\n]{0,200}\\|\\s*(ba)?sh|chmod\\s+\\+x[^;\\n]{0,100}(\\/tmp|\\$HOME|~\\/)|urlretrieve[^;\\n]{0,120}chmod"
@@ -127,6 +142,7 @@ rules:
     name: crypto-mining
     category: dangerous-capability
     severity: critical
+    disqualifying: true
     description: Contains cryptocurrency mining indicators.
     context: code
     pattern: "stratum\\+tcp:\\/\\/|coinhive|xmrig|minergate|cryptonight"

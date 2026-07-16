@@ -76,6 +76,7 @@ function scanToolDescriptions(
         file: tool.file,
         line: tool.line,
         evidence: truncate(match[0]),
+        disqualifying: rule.disqualifying,
       });
     }
   }
@@ -106,6 +107,7 @@ function scanCode(files: SourceFile[], rules: CompiledRule[]): Finding[] {
           file: file.path,
           line: i + 1,
           evidence: truncate(match[0]),
+          disqualifying: rule.disqualifying,
         });
       }
     }
@@ -145,10 +147,13 @@ export function computeGrade(findings: Finding[]): {
   for (const f of findings) penalty += SEVERITY_WEIGHT[f.severity];
   const score = Math.max(0, 100 - penalty);
 
-  // Any tool-poisoning critical is an automatic F: the server is actively
-  // trying to manipulate the agent, which is disqualifying regardless of score.
+  // Automatic F: any tool-poisoning critical (the server is actively trying to
+  // manipulate the agent), or any finding flagged disqualifying (behavior that
+  // is essentially never legitimate — reading SSH keys, reverse shells, etc.).
   const poisoned = findings.some(
-    (f) => f.category === "tool-poisoning" && f.severity === "critical",
+    (f) =>
+      (f.category === "tool-poisoning" && f.severity === "critical") ||
+      f.disqualifying,
   );
   const grade: Grade = poisoned
     ? "F"

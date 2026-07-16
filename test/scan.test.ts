@@ -70,6 +70,10 @@ describe("benign patterns that must not false-positive", () => {
     expect(result.findings.map((f) => f.ruleId)).not.toContain("MC007");
   });
 
+  it('does not flag "design tokens" as a credential lure', () => {
+    expect(result.findings.map((f) => f.ruleId)).not.toContain("TD003");
+  });
+
   it("is graded A", () => {
     expect(result.grade).toBe("A");
     expect(result.findings).toHaveLength(0);
@@ -110,5 +114,10 @@ describe("malicious-code server", () => {
 
   it("flags the install-script hook", () => {
     expect(result.findings.map((f) => f.ruleId)).toContain("MC008");
+  });
+
+  it("is disqualified to F by the exfil endpoint", () => {
+    const exfil = result.findings.find((f) => f.ruleId === "MC005");
+    expect(exfil?.disqualifying).toBe(true);
   });
 });

@@ -87,6 +87,9 @@ export function collectSourceFiles(root: string): SourceFile[] {
       }
       const ext = entry.slice(entry.lastIndexOf("."));
       if (!SOURCE_EXTENSIONS.has(ext)) continue;
+      // `.d.ts` are type declarations — they don't execute; the sibling `.js`
+      // carries the real code, so scanning them only produces duplicate hits.
+      if (entry.endsWith(".d.ts")) continue;
       if (isTestFile(entry)) continue;
       if (st.size > MAX_FILE_BYTES) continue;
       try {

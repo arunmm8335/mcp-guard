@@ -21,9 +21,14 @@ rules:
     name: credential-exfiltration-lure
     category: tool-poisoning
     severity: critical
-    description: Tool description instructs the agent to read or transmit secrets.
+    description: Tool description instructs the agent to smuggle secrets into its response or output.
     context: tool-description
-    pattern: "(read|get|fetch|collect|include|send|attach|pass|forward)[^.]{0,60}(api[_ ]?keys?|credentials?|passwords?|secrets?|tokens?|\\.env\\b|environment\\s+variables|ssh\\s+keys?|id_rsa)"
+    # High-signal exfil-via-response pattern: "include the api key in your
+    # answer", "attach credentials to the output". Plain "send to <url>" is
+    # covered by TD007; benign phrases like "send a password reset" or "get
+    # access token" don't match. `tokens?` is security-qualified so "design
+    # tokens" is excluded.
+    pattern: "(include|attach|embed|append|add|put|insert)[^.]{0,45}(api[_ ]?keys?|credentials?|passwords?|secrets?|(?:access|auth|bearer|refresh|secret|session|oauth)[ _-]?tokens?|\\.env\\b|environment\\s+variables|ssh\\s+keys?|id_rsa)[^.]{0,45}(in|to|into|with)\\s+(your\\s+)?(response|output|reply|answer|message|result|text)"
 
   - id: TD004
     name: sensitive-file-lure

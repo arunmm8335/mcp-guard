@@ -1,0 +1,271 @@
+#!/usr/bin/env node
+// Batch-scan the most-downloaded MCP servers on npm and produce a report.
+//
+// Usage:
+//   node scripts/registry-report.mjs [--limit 150] [--concurrency 6] [--timeout 90000]
+//
+// Writes report/REPORT.md and report/report-data.json.
+//
+// This is a maintainer/launch tool — it is not part of the published package.
+
+import { spawn } from "node:child_process";
+import { mkdirSync, writeFileSync } from "node:fs";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
+
+const root = join(dirname(fileURLToPath(import.meta.url)), "..");
+const CLI = join(root, "dist", "cli.js");
+const OUT_DIR = join(root, "report");
+
+const args = process.argv.slice(2);
+function flag(name, def) {
+  const i = args.indexOf(`--${name}`);
+  return i !== -1 && args[i + 1] ? args[i + 1] : def;
+}
+const LIMIT = Number(flag("limit", "150"));
+const CONCURRENCY = Number(flag("concurrency", "6"));
+const TIMEOUT = Number(flag("timeout", "90000"));
+
+const SEARCH_QUERIES = [
+  "mcp server",
+  "modelcontextprotocol",
+  "model context protocol",
+  "mcp",
+];
+
+async function fetchJson(url) {
+  const res = await fetch(url, { headers: { accept: "application/json" } });
+  if (!res.ok) throw new Error(`${res.status} ${url}`);
+  return res.json();
+}
+
+/** Collect candidate npm packages across queries, ranked by monthly downloads. */
+async function collectPackages() {
+  const byName = new Map();
+  for (const q of SEARCH_QUERIES) {
+    for (let from = 0; from < 250; from += 250) {
+      let data;
+      try {
+        data = await fetchJson(
+          `https://registry.npmjs.org/-/v1/search?text=${encodeURIComponent(q)}&size=250&from=${from}`,
+        );
+      } catch {
+        break;
+      }
+      const objs = data.objects ?? [];
+      if (objs.length === 0) break;
+      for (const o of objs) {
+        const name = o.package?.name;
+        if (!name) continue;
+        const looksMcp =
+          /mcp/i.test(name) ||
+          (o.package.keywords ?? []).some((k) => /mcp|model.?context/i.test(k));
+        if (!looksMcp) continue;
+        const downloads = o.downloads?.monthly ?? 0;
+        const prev = byName.get(name);
+        if (!prev || downloads > prev.downloads) {
+          byName.set(name, {
+            name,
+            downloads,
+            description: o.package.description ?? "",
+          });
+        }
+      }
+    }
+  }
+  return [...byName.values()]
+    .sort((a, b) => b.downloads - a.downloads)
+    .slice(0, LIMIT);
+}
+
+function scanPackage(pkg) {
+  return new Promise((resolve) => {
+    const child = spawn("node", [CLI, "scan", `npm:${pkg.name}`, "--json"], {
+      stdio: ["ignore", "pipe", "pipe"],
+    });
+    let out = "";
+    let err = "";
+    const timer = setTimeout(() => {
+      child.kill("SIGKILL");
+    }, TIMEOUT);
+    child.stdout.on("data", (d) => (out += d));
+    child.stderr.on("data", (d) => (err += d));
+    child.on("close", (code) => {
+      clearTimeout(timer);
+      if (code === 0 || code === 1) {
+        // 0 = clean, 1 = grade at/below fail threshold; both produce JSON.
+        try {
+          const result = JSON.parse(out);
+          resolve({ pkg, result });
+          return;
+        } catch {
+          /* fallthrough */
+        }
+      }
+      resolve({
+        pkg,
+        error: (err.trim().split("\n").pop() || `exit ${code}`).slice(0, 160),
+      });
+    });
+  });
+}
+
+async function runPool(items, worker) {
+  const results = [];
+  let next = 0;
+  let done = 0;
+  async function run() {
+    while (next < items.length) {
+      const i = next++;
+      const r = await worker(items[i]);
+      results[i] = r;
+      done++;
+      process.stderr.write(`\r  scanned ${done}/${items.length}   `);
+    }
+  }
+  await Promise.all(Array.from({ length: CONCURRENCY }, run));
+  process.stderr.write("\n");
+  return results;
+}
+
+function buildReport(rows) {
+  const scanned = rows.filter((r) => r.result);
+  const errored = rows.filter((r) => r.error);
+
+  const gradeCount = { A: 0, B: 0, C: 0, D: 0, F: 0 };
+  const ruleCount = new Map();
+  const flagged = [];
+  let totalTools = 0;
+
+  for (const { pkg, result } of scanned) {
+    gradeCount[result.grade]++;
+    totalTools += result.tools.length;
+    for (const f of result.findings) {
+      const key = `${f.ruleId} ${f.ruleName}`;
+      ruleCount.set(key, (ruleCount.get(key) ?? 0) + 1);
+    }
+    if (result.grade === "D" || result.grade === "F" || result.findings.length) {
+      flagged.push({ pkg, result });
+    }
+  }
+
+  flagged.sort(
+    (a, b) =>
+      "ABCDF".indexOf(b.result.grade) - "ABCDF".indexOf(a.result.grade) ||
+      b.result.findings.length - a.result.findings.length,
+  );
+
+  const topRules = [...ruleCount.entries()].sort((a, b) => b[1] - a[1]);
+  const notClean = scanned.length - gradeCount.A;
+  const pct = (n) =>
+    scanned.length ? ((n / scanned.length) * 100).toFixed(1) : "0.0";
+
+  const L = [];
+  L.push(`# The state of MCP server security on npm`);
+  L.push("");
+  L.push(
+    `_Generated by [mcpguard](https://github.com/arunmm8335/mcp-guard) on ${new Date().toISOString().slice(0, 10)}._`,
+  );
+  L.push("");
+  L.push(
+    `We scanned the **${scanned.length} most-downloaded MCP server packages on npm** for tool-poisoning and dangerous-code patterns. Each package is graded A–F; a finding is evidence to review, not proof of malice.`,
+  );
+  L.push("");
+  L.push(`## Headline numbers`);
+  L.push("");
+  L.push(`| Metric | Value |`);
+  L.push(`| --- | --- |`);
+  L.push(`| Packages scanned | ${scanned.length} |`);
+  L.push(`| Clean (grade A) | ${gradeCount.A} (${pct(gradeCount.A)}%) |`);
+  L.push(`| At least one finding | ${notClean} (${pct(notClean)}%) |`);
+  L.push(`| Grade D or F | ${gradeCount.D + gradeCount.F} (${pct(gradeCount.D + gradeCount.F)}%) |`);
+  L.push(`| Tools inspected | ${totalTools} |`);
+  L.push(`| Failed to scan (timeout/not a package) | ${errored.length} |`);
+  L.push("");
+  L.push(`## Grade distribution`);
+  L.push("");
+  L.push(`| Grade | Count | Share |`);
+  L.push(`| --- | --- | --- |`);
+  for (const g of ["A", "B", "C", "D", "F"]) {
+    L.push(`| ${g} | ${gradeCount[g]} | ${pct(gradeCount[g])}% |`);
+  }
+  L.push("");
+  if (topRules.length) {
+    L.push(`## Most common findings`);
+    L.push("");
+    L.push(`| Rule | Packages |`);
+    L.push(`| --- | --- |`);
+    for (const [rule, n] of topRules) L.push(`| ${rule} | ${n} |`);
+    L.push("");
+  }
+  if (flagged.length) {
+    L.push(`## Packages worth a look`);
+    L.push("");
+    L.push(`| Package | Grade | Findings | Rules |`);
+    L.push(`| --- | --- | --- | --- |`);
+    for (const { pkg, result } of flagged.slice(0, 40)) {
+      const rules = [...new Set(result.findings.map((f) => f.ruleId))].join(", ");
+      L.push(
+        `| \`${pkg.name}\` | ${result.grade} | ${result.findings.length} | ${rules} |`,
+      );
+    }
+    L.push("");
+  }
+  L.push(`## Method & caveats`);
+  L.push("");
+  L.push(
+    `- Packages were ranked by monthly npm downloads and resolved via \`npm pack\` (published tarball, including compiled \`dist/\`).`,
+  );
+  L.push(
+    `- Detection is static pattern-matching. It flags capabilities and injection patterns; a human should review each finding in context.`,
+  );
+  L.push(
+    `- Tool extraction is best-effort across the common SDK styles, so a few heavily-bundled servers report 0 tools.`,
+  );
+  L.push(
+    `- Reproduce: \`node scripts/registry-report.mjs --limit ${LIMIT}\`.`,
+  );
+  L.push("");
+  return L.join("\n");
+}
+
+async function main() {
+  process.stderr.write(`Collecting up to ${LIMIT} MCP packages from npm...\n`);
+  const packages = await collectPackages();
+  process.stderr.write(`Found ${packages.length} candidates. Scanning...\n`);
+  const rows = await runPool(packages, scanPackage);
+
+  mkdirSync(OUT_DIR, { recursive: true });
+  const md = buildReport(rows);
+  writeFileSync(join(OUT_DIR, "REPORT.md"), md + "\n");
+  writeFileSync(
+    join(OUT_DIR, "report-data.json"),
+    JSON.stringify(
+      rows.map((r) =>
+        r.result
+          ? {
+              name: r.pkg.name,
+              downloads: r.pkg.downloads,
+              grade: r.result.grade,
+              score: r.result.score,
+              tools: r.result.tools.length,
+              findings: r.result.findings.map((f) => ({
+                ruleId: f.ruleId,
+                severity: f.severity,
+                file: f.file,
+                line: f.line,
+              })),
+            }
+          : { name: r.pkg.name, downloads: r.pkg.downloads, error: r.error },
+      ),
+      null,
+      2,
+    ) + "\n",
+  );
+  process.stderr.write(`\nWrote ${join(OUT_DIR, "REPORT.md")}\n`);
+}
+
+main().catch((e) => {
+  console.error(e);
+  process.exit(1);
+});

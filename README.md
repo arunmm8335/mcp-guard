@@ -25,18 +25,27 @@ Run against popular published servers (as of July 2026), the scanner grades clea
 
 Tuning these runs drove several precision fixes now covered by tests: scanning compiled `dist/` when a package ships no `src/`, ignoring test files and commented-out code, and not misreading regex `.exec()`, loopback IPs, or embedded base64 images as attacks.
 
+### The state of MCP security on npm
+
+We scanned the **150 most-downloaded MCP server packages on npm**: **69% grade A**, but **16% land at D or F**, and 4 packages read well-known credential files. See the full breakdown in [`report/REPORT.md`](./report/REPORT.md), regenerate with `node scripts/registry-report.mjs`.
+
 ## Install / run
+
+```bash
+# once published
+npm install -g mcpguard
+mcpguard scan <target>
+
+# or run without installing
+npx mcpguard scan <target>
+```
+
+From source:
 
 ```bash
 npm install
 npm run build
 node dist/cli.js scan <target>
-```
-
-Or during development, without building:
-
-```bash
-npm run dev -- scan <target>
 ```
 
 ## Usage

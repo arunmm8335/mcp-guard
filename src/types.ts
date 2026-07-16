@@ -14,6 +14,8 @@ export interface Rule {
   context: RuleContext;
   /** File extensions this rule applies to (code rules only), e.g. [".ts", ".py"]. */
   extensions?: string[];
+  /** When true, a single match forces an F grade regardless of score. */
+  disqualifying?: boolean;
 }
 
 export interface Finding {
@@ -26,6 +28,8 @@ export interface Finding {
   line: number;
   /** The matched text, truncated for display. */
   evidence: string;
+  /** When true, this finding alone forces an F grade. */
+  disqualifying?: boolean;
 }
 
 export interface ToolDescriptor {

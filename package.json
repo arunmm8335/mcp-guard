@@ -23,9 +23,22 @@
     "security",
     "scanner",
     "supply-chain",
-    "ai-agents"
+    "ai-agents",
+    "tool-poisoning",
+    "prompt-injection",
+    "sast",
+    "cli"
   ],
   "license": "MIT",
+  "author": "arunmm8335",
+  "homepage": "https://github.com/arunmm8335/mcp-guard#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arunmm8335/mcp-guard.git"
+  },
+  "bugs": {
+    "url": "https://github.com/arunmm8335/mcp-guard/issues"
+  },
   "engines": {
     "node": ">=18"
   },

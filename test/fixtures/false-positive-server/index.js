@@ -22,3 +22,9 @@ server.tool(
   "Return the app icon as a base64 PNG.",
   async () => ({ content: [{ type: "text", text: PNG_ICON }] }),
 );
+
+server.tool(
+  "get_tokens",
+  "Get all design tokens and semantic tokens defined in the theme.",
+  async () => ({ content: [] }),
+);

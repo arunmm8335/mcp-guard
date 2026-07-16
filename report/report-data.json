@@ -1,0 +1,4474 @@
+[
+  {
+    "name": "@modelcontextprotocol/sdk",
+    "downloads": 169915530,
+    "grade": "A",
+    "score": 96,
+    "tools": 50,
+    "findings": [
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/cjs/types.js",
+        "line": 792
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/esm/types.js",
+        "line": 754
+      }
+    ]
+  },
+  {
+    "name": "@playwright/mcp",
+    "downloads": 24773958,
+    "grade": "A",
+    "score": 100,
+    "tools": 0,
+    "findings": []
+  },
+  {
+    "name": "chrome-devtools-mcp",
+    "downloads": 11133866,
+    "grade": "F",
+    "score": 1,
+    "tools": 175,
+    "findings": [
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/src/bin/check-latest-version.js",
+        "line": 6
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "build/src/bin/check-latest-version.js",
+        "line": 17
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/src/browser.js",
+        "line": 6
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "build/src/browser.js",
+        "line": 123
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/src/daemon/client.js",
+        "line": 6
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "build/src/daemon/client.js",
+        "line": 167
+      },
+      {
+        "ruleId": "MC015",
+        "severity": "medium",
+        "file": "build/src/daemon/daemon.js",
+        "line": 24
+      },
+      {
+        "ruleId": "MC015",
+        "severity": "medium",
+        "file": "build/src/daemon/utils.js",
+        "line": 17
+      },
+      {
+        "ruleId": "MC015",
+        "severity": "medium",
+        "file": "build/src/daemon/utils.js",
+        "line": 36
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/src/telemetry/WatchdogClient.js",
+        "line": 6
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "build/src/third_party/devtools-formatter-worker.js",
+        "line": 8377
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "build/src/third_party/devtools-formatter-worker.js",
+        "line": 10883
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "build/src/third_party/devtools-heap-snapshot-worker.js",
+        "line": 824
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "build/src/third_party/devtools-heap-snapshot-worker.js",
+        "line": 3429
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/src/utils/check-for-updates.js",
+        "line": 6
+      }
+    ]
+  },
+  {
+    "name": "@storybook/mcp",
+    "downloads": 7390327,
+    "grade": "A",
+    "score": 100,
+    "tools": 0,
+    "findings": []
+  },
+  {
+    "name": "@tmcp/session-manager",
+    "downloads": 6054457,
+    "grade": "A",
+    "score": 100,
+    "tools": 0,
+    "findings": []
+  },
+  {
+    "name": "mcp-proxy",
+    "downloads": 5712437,
+    "grade": "A",
+    "score": 98,
+    "tools": 0,
+    "findings": [
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "src/StdioClientTransport.ts",
+        "line": 11
+      }
+    ]
+  },
+  {
+    "name": "@ai-sdk/mcp",
+    "downloads": 5449051,
+    "grade": "A",
+    "score": 96,
+    "tools": 6,
+    "findings": [
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "src/tool/mcp-stdio/create-child-process.ts",
+        "line": 1
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "src/tool/mcp-stdio/mcp-stdio-transport.ts",
+        "line": 1
+      }
+    ]
+  },
+  {
+    "name": "agent-install",
+    "downloads": 4060506,
+    "grade": "A",
+    "score": 96,
+    "tools": 0,
+    "findings": [
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/skill-Ca0auZkf.cjs",
+        "line": 8
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/skill-DzD0NuUN.js",
+        "line": 8
+      }
+    ]
+  },
+  {
+    "name": "@upstash/context7-mcp",
+    "downloads": 3719329,
+    "grade": "A",
+    "score": 100,
+    "tools": 2,
+    "findings": []
+  },
+  {
+    "name": "mcporter",
+    "downloads": 3648906,
+    "grade": "F",
+    "score": 18,
+    "tools": 16,
+    "findings": [
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/cli/auth-command.js",
+        "line": 1
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/cli/generate/artifacts.js",
+        "line": 1
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/cli/generate/runtime.js",
+        "line": 1
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/cli/image-output.js",
+        "line": 18
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/cli-metadata.js",
+        "line": 1
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/daemon/launch.js",
+        "line": 1
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/oauth.js",
+        "line": 1
+      },
+      {
+        "ruleId": "MC003",
+        "severity": "critical",
+        "file": "dist/runtime/transport.js",
+        "line": 133
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/runtime-process-utils.js",
+        "line": 1
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/src/cli/auth-command.js",
+        "line": 1
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/src/cli/generate/artifacts.js",
+        "line": 1
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/src/cli/generate/runtime.js",
+        "line": 1
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/src/cli/image-output.js",
+        "line": 18
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/src/cli-metadata.js",
+        "line": 1
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/src/daemon/launch.js",
+        "line": 1
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/src/oauth.js",
+        "line": 1
+      },
+      {
+        "ruleId": "MC003",
+        "severity": "critical",
+        "file": "dist/src/runtime/transport.js",
+        "line": 133
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/src/runtime-process-utils.js",
+        "line": 1
+      }
+    ]
+  },
+  {
+    "name": "@expo/mcp-tunnel",
+    "downloads": 2723347,
+    "grade": "A",
+    "score": 100,
+    "tools": 0,
+    "findings": []
+  },
+  {
+    "name": "mcp-handler",
+    "downloads": 2086340,
+    "grade": "B",
+    "score": 76,
+    "tools": 2,
+    "findings": [
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/cli/index.js",
+        "line": 87
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/cli/index.mjs",
+        "line": 79
+      }
+    ]
+  },
+  {
+    "name": "fastmcp",
+    "downloads": 1975114,
+    "grade": "F",
+    "score": 20,
+    "tools": 2,
+    "findings": [
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/bin/fastmcp.cjs",
+        "line": 38
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/bin/fastmcp.cjs",
+        "line": 106
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/bin/fastmcp.cjs",
+        "line": 120
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/bin/fastmcp.js",
+        "line": 38
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/bin/fastmcp.js",
+        "line": 106
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/bin/fastmcp.js",
+        "line": 120
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/chunk-BJF2JTTE.cjs",
+        "line": 1283
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/chunk-BTMLQWIR.js",
+        "line": 1283
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/chunk-IX3HKAX4.cjs",
+        "line": 440
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/chunk-OJG4XYXA.js",
+        "line": 440
+      }
+    ]
+  },
+  {
+    "name": "mcp-remote",
+    "downloads": 1612300,
+    "grade": "B",
+    "score": 78,
+    "tools": 0,
+    "findings": [
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "dist/chunk-65X3S4HB.js",
+        "line": 2941
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/chunk-65X3S4HB.js",
+        "line": 7465
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/chunk-65X3S4HB.js",
+        "line": 8455
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/chunk-65X3S4HB.js",
+        "line": 8512
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/chunk-65X3S4HB.js",
+        "line": 11485
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/chunk-65X3S4HB.js",
+        "line": 13344
+      }
+    ]
+  },
+  {
+    "name": "@mcp-ui/client",
+    "downloads": 1201649,
+    "grade": "C",
+    "score": 60,
+    "tools": 0,
+    "findings": [
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "dist/index.js",
+        "line": 1
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/index.js",
+        "line": 1
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/index.js",
+        "line": 4
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/index.js",
+        "line": 78
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "dist/index.mjs",
+        "line": 181
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/index.mjs",
+        "line": 400
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/index.mjs",
+        "line": 932
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/index.mjs",
+        "line": 960
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/index.mjs",
+        "line": 5649
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/index.mjs",
+        "line": 5857
+      }
+    ]
+  },
+  {
+    "name": "@pandacss/mcp",
+    "downloads": 989516,
+    "grade": "A",
+    "score": 100,
+    "tools": 24,
+    "findings": []
+  },
+  {
+    "name": "@langchain/mcp-adapters",
+    "downloads": 935372,
+    "grade": "A",
+    "score": 100,
+    "tools": 0,
+    "findings": []
+  },
+  {
+    "name": "@hono/mcp",
+    "downloads": 870493,
+    "grade": "A",
+    "score": 100,
+    "tools": 0,
+    "findings": []
+  },
+  {
+    "name": "@ag-ui/mcp-apps-middleware",
+    "downloads": 803594,
+    "grade": "A",
+    "score": 100,
+    "tools": 0,
+    "findings": []
+  },
+  {
+    "name": "add-mcp",
+    "downloads": 698665,
+    "grade": "A",
+    "score": 100,
+    "tools": 1,
+    "findings": []
+  },
+  {
+    "name": "@notionhq/notion-mcp-server",
+    "downloads": 622322,
+    "grade": "A",
+    "score": 100,
+    "tools": 33,
+    "findings": []
+  },
+  {
+    "name": "@modelcontextprotocol/server",
+    "downloads": 608583,
+    "grade": "C",
+    "score": 60,
+    "tools": 0,
+    "findings": [
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "dist/ajvProvider-Brn-Q2J_.cjs",
+        "line": 2593
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "dist/ajvProvider-CplOkyLC.mjs",
+        "line": 2593
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/index.cjs",
+        "line": 1710
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/index.mjs",
+        "line": 1708
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/src-D5Nfqtoz.mjs",
+        "line": 869
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/src-D5Nfqtoz.mjs",
+        "line": 2443
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/src-D5Nfqtoz.mjs",
+        "line": 4573
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/src-D9A7ArDn.cjs",
+        "line": 870
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/src-D9A7ArDn.cjs",
+        "line": 2444
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/src-D9A7ArDn.cjs",
+        "line": 4574
+      }
+    ]
+  },
+  {
+    "name": "expo-mcp",
+    "downloads": 563546,
+    "grade": "A",
+    "score": 100,
+    "tools": 6,
+    "findings": []
+  },
+  {
+    "name": "@rekog/mcp-nest",
+    "downloads": 544823,
+    "grade": "A",
+    "score": 100,
+    "tools": 16,
+    "findings": []
+  },
+  {
+    "name": "firecrawl-mcp",
+    "downloads": 531886,
+    "grade": "A",
+    "score": 100,
+    "tools": 26,
+    "findings": []
+  },
+  {
+    "name": "n8n-mcp",
+    "downloads": 511779,
+    "grade": "F",
+    "score": 0,
+    "tools": 81,
+    "findings": [
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "dist/database/database-adapter.js",
+        "line": 160
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/database/database-adapter.js",
+        "line": 177
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/database/database-adapter.js",
+        "line": 178
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "dist/database/database-adapter.js",
+        "line": 205
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/database/database-adapter.js",
+        "line": 233
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/database/database-adapter.js",
+        "line": 235
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/database/database-adapter.js",
+        "line": 239
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/database/database-adapter.js",
+        "line": 245
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/database/database-adapter.js",
+        "line": 246
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/database/migrations/add-workflow-versions-instance-id.js",
+        "line": 39
+      },
+      {
+        "ruleId": "MC011",
+        "severity": "low",
+        "file": "dist/loaders/node-loader.js",
+        "line": 57
+      },
+      {
+        "ruleId": "MC011",
+        "severity": "low",
+        "file": "dist/loaders/node-loader.js",
+        "line": 89
+      },
+      {
+        "ruleId": "MC003",
+        "severity": "critical",
+        "file": "dist/mcp/handlers-n8n-manager.js",
+        "line": 1839
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/scripts/fetch-templates-robust.js",
+        "line": 51
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/scripts/fetch-templates-robust.js",
+        "line": 52
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/scripts/fetch-templates.js",
+        "line": 59
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/scripts/fetch-templates.js",
+        "line": 111
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/scripts/fetch-templates.js",
+        "line": 120
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/scripts/fetch-templates.js",
+        "line": 222
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/scripts/fetch-templates.js",
+        "line": 223
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/scripts/fetch-templates.js",
+        "line": 241
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/scripts/fetch-templates.js",
+        "line": 343
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/scripts/migrate-readme-columns.js",
+        "line": 33
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/scripts/mine-workflow-patterns.js",
+        "line": 255
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/scripts/rebuild-optimized.js",
+        "line": 113
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/scripts/rebuild-optimized.js",
+        "line": 179
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/scripts/rebuild.js",
+        "line": 58
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/scripts/sanitize-templates.js",
+        "line": 21
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/services/config-validator.js",
+        "line": 380
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "dist/services/config-validator.js",
+        "line": 380
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/services/node-documentation-service.js",
+        "line": 285
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/services/node-documentation-service.js",
+        "line": 286
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "dist/services/node-specific-validators.js",
+        "line": 1516
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "dist/services/node-specific-validators.js",
+        "line": 1518
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/services/sqlite-storage-service.js",
+        "line": 22
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/services/sqlite-storage-service.js",
+        "line": 23
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/templates/template-repository.js",
+        "line": 70
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/templates/template-repository.js",
+        "line": 75
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/templates/template-repository.js",
+        "line": 81
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/templates/template-repository.js",
+        "line": 87
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/templates/template-repository.js",
+        "line": 171
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/templates/template-repository.js",
+        "line": 185
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/templates/template-repository.js",
+        "line": 390
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/templates/template-repository.js",
+        "line": 398
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/templates/template-repository.js",
+        "line": 399
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/triggers/handlers/form-handler.js",
+        "line": 76
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/triggers/handlers/form-handler.js",
+        "line": 228
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/triggers/handlers/form-handler.js",
+        "line": 256
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/utils/enhanced-documentation-fetcher.js",
+        "line": 10
+      }
+    ]
+  },
+  {
+    "name": "@sap-ux/fiori-mcp-server",
+    "downloads": 501594,
+    "grade": "B",
+    "score": 88,
+    "tools": 0,
+    "findings": [
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "dist/ort-wasm-simd-threaded.jsep.mjs",
+        "line": 51
+      }
+    ]
+  },
+  {
+    "name": "@azure/mcp",
+    "downloads": 482937,
+    "grade": "D",
+    "score": 58,
+    "tools": 0,
+    "findings": [
+      {
+        "ruleId": "MC011",
+        "severity": "low",
+        "file": "index.js",
+        "line": 37
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "index.js",
+        "line": 43
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "index.js",
+        "line": 49
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "index.js",
+        "line": 58
+      },
+      {
+        "ruleId": "MC011",
+        "severity": "low",
+        "file": "index.js",
+        "line": 71
+      },
+      {
+        "ruleId": "MC008",
+        "severity": "high",
+        "file": "package.json",
+        "line": 44
+      }
+    ]
+  },
+  {
+    "name": "@mcp-ui/server",
+    "downloads": 453622,
+    "grade": "D",
+    "score": 58,
+    "tools": 0,
+    "findings": [
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/index.cjs",
+        "line": 3
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "dist/index.cjs",
+        "line": 26
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/index.cjs",
+        "line": 26
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/index.cjs",
+        "line": 29
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/index.mjs",
+        "line": 881
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/index.mjs",
+        "line": 925
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/index.mjs",
+        "line": 2804
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "dist/index.mjs",
+        "line": 3821
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/index.mjs",
+        "line": 4038
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/index.mjs",
+        "line": 4562
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/index.mjs",
+        "line": 4590
+      }
+    ]
+  },
+  {
+    "name": "@ui5/mcp-server",
+    "downloads": 447903,
+    "grade": "A",
+    "score": 95,
+    "tools": 0,
+    "findings": [
+      {
+        "ruleId": "MC015",
+        "severity": "medium",
+        "file": "lib/tools/create_ui5_app/create_ui5_app.js",
+        "line": 40
+      }
+    ]
+  },
+  {
+    "name": "@zereight/mcp-gitlab",
+    "downloads": 425974,
+    "grade": "F",
+    "score": 19,
+    "tools": 222,
+    "findings": [
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "build/index.js",
+        "line": 1368
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "build/index.js",
+        "line": 6441
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/oauth.js",
+        "line": 8
+      },
+      {
+        "ruleId": "MC003",
+        "severity": "critical",
+        "file": "build/test/clients/stdio-client.js",
+        "line": 26
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/test/test-ci-catalog.js",
+        "line": 3
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/test/test-ci-lint.js",
+        "line": 3
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/test/test-ci-variables.js",
+        "line": 3
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/test/test-create-repository.js",
+        "line": 3
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/test/test-dependency-proxy.js",
+        "line": 3
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/test/test-deployment-tools.js",
+        "line": 3
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/test/test-download-attachment.js",
+        "line": 3
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "build/test/test-download-attachment.js",
+        "line": 10
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/test/test-get-file-blame.js",
+        "line": 3
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/test/test-job-artifacts.js",
+        "line": 3
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/test/test-list-issues.js",
+        "line": 3
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/test/test-list-merge-requests.js",
+        "line": 3
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/test/test-list-project-members.js",
+        "line": 3
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/test/test-merge-request-approval-state-tools.js",
+        "line": 3
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/test/test-merge-request-approvals.js",
+        "line": 10
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/test/test-merge-request-pipelines.js",
+        "line": 3
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/test/test-mr-diffs-filter.js",
+        "line": 3
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/test/test-mr-file-diffs.js",
+        "line": 3
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/test/test-protected-branches.js",
+        "line": 3
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "build/test/test-remote-downloads.js",
+        "line": 31
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/test/test-tags.js",
+        "line": 3
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/test/test-todos.js",
+        "line": 3
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/test/test-update-project.js",
+        "line": 3
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/test/test-upload-markdown.js",
+        "line": 3
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/test/utils/server-launcher.js",
+        "line": 5
+      }
+    ]
+  },
+  {
+    "name": "agentation-mcp",
+    "downloads": 398196,
+    "grade": "C",
+    "score": 62,
+    "tools": 27,
+    "findings": [
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/cli.js",
+        "line": 815
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/cli.js",
+        "line": 2407
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/index.js",
+        "line": 239
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/index.mjs",
+        "line": 233
+      }
+    ]
+  },
+  {
+    "name": "@clerk/mcp-tools",
+    "downloads": 385510,
+    "grade": "A",
+    "score": 98,
+    "tools": 0,
+    "findings": [
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/server.mjs",
+        "line": 49
+      }
+    ]
+  },
+  {
+    "name": "@transcend-io/mcp-server-dsr",
+    "downloads": 374613,
+    "grade": "A",
+    "score": 100,
+    "tools": 12,
+    "findings": []
+  },
+  {
+    "name": "@azure-devops/mcp",
+    "downloads": 372484,
+    "grade": "A",
+    "score": 98,
+    "tools": 0,
+    "findings": [
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/index.js",
+        "line": 63
+      }
+    ]
+  },
+  {
+    "name": "@transcend-io/mcp",
+    "downloads": 352462,
+    "grade": "A",
+    "score": 100,
+    "tools": 0,
+    "findings": []
+  },
+  {
+    "name": "@transcend-io/mcp-server-assessment",
+    "downloads": 352212,
+    "grade": "A",
+    "score": 100,
+    "tools": 14,
+    "findings": []
+  },
+  {
+    "name": "@transcend-io/mcp-server-admin",
+    "downloads": 352106,
+    "grade": "A",
+    "score": 100,
+    "tools": 8,
+    "findings": []
+  },
+  {
+    "name": "@sentry/mcp-server",
+    "downloads": 340351,
+    "grade": "D",
+    "score": 44,
+    "tools": 10,
+    "findings": [
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/device-code-flow-C8F3AhEF.cjs",
+        "line": 5
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/device-code-flow-CcQul2R1.js",
+        "line": 4
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/device-code-flow-CcQul2R1.js",
+        "line": 93
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/device-code-flow-CcQul2R1.js",
+        "line": 94
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/device-code-flow-CcQul2R1.js",
+        "line": 95
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/device-code-flow-CcQul2R1.js",
+        "line": 96
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/token-util-BRoQwIG6.cjs",
+        "line": 349
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/token-util-batRsXGA.js",
+        "line": 349
+      }
+    ]
+  },
+  {
+    "name": "@transcend-io/mcp-server-consent",
+    "downloads": 330020,
+    "grade": "A",
+    "score": 100,
+    "tools": 14,
+    "findings": []
+  },
+  {
+    "name": "@wonderwhy-er/desktop-commander",
+    "downloads": 313740,
+    "grade": "F",
+    "score": 0,
+    "tools": 28,
+    "findings": [
+      {
+        "ruleId": "TD006",
+        "severity": "high",
+        "file": "dist/server.js",
+        "line": 905
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/remote-device/desktop-commander-integration.js",
+        "line": 1
+      },
+      {
+        "ruleId": "MC015",
+        "severity": "medium",
+        "file": "dist/remote-device/device-authenticator.js",
+        "line": 36
+      },
+      {
+        "ruleId": "MC015",
+        "severity": "medium",
+        "file": "dist/remote-device/device.js",
+        "line": 125
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/remote-device/remote-channel.js",
+        "line": 482
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/search-manager.js",
+        "line": 1
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/setup-claude-server.js",
+        "line": 8
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/setup-claude-server.js",
+        "line": 128
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "dist/setup-claude-server.js",
+        "line": 544
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/terminal-manager.js",
+        "line": 1
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/tools/feedback.js",
+        "line": 4
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/tools/filesystem.js",
+        "line": 5
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/tools/improved-process-tools.js",
+        "line": 8
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/tools/process.js",
+        "line": 1
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/track-installation.js",
+        "line": 109
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/ui/config-editor/config-editor-runtime.js",
+        "line": 3
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "dist/ui/config-editor/config-editor-runtime.js",
+        "line": 26
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/ui/config-editor/config-editor-runtime.js",
+        "line": 26
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/ui/config-editor/config-editor-runtime.js",
+        "line": 29
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/uninstall-claude-server.js",
+        "line": 8
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/uninstall-claude-server.js",
+        "line": 86
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "dist/uninstall-claude-server.js",
+        "line": 422
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/utils/default-editor.js",
+        "line": 1
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/utils/files/image.js",
+        "line": 31
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/utils/open-browser.js",
+        "line": 1
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/utils/ripgrep-resolver.js",
+        "line": 1
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/utils/ripgrep-resolver.js",
+        "line": 38
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/utils/system-info.js",
+        "line": 4
+      },
+      {
+        "ruleId": "MC015",
+        "severity": "medium",
+        "file": "dist/utils/system-info.js",
+        "line": 82
+      },
+      {
+        "ruleId": "MC015",
+        "severity": "medium",
+        "file": "dist/utils/system-info.js",
+        "line": 256
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/utils/system-info.js",
+        "line": 374
+      },
+      {
+        "ruleId": "MC008",
+        "severity": "high",
+        "file": "package.json",
+        "line": 29
+      }
+    ]
+  },
+  {
+    "name": "mongodb-mcp-server",
+    "downloads": 311827,
+    "grade": "D",
+    "score": 56,
+    "tools": 4,
+    "findings": [
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/cjs/setup/aiTool.js",
+        "line": 12
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/cjs/setup/installSkills.js",
+        "line": 11
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/cjs/setup/installSkills.js",
+        "line": 54
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/esm/setup/aiTool.js",
+        "line": 6
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "dist/esm/setup/aiTool.js",
+        "line": 190
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/esm/setup/installSkills.js",
+        "line": 2
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/esm/setup/installSkills.js",
+        "line": 45
+      }
+    ]
+  },
+  {
+    "name": "@salesforce/mcp",
+    "downloads": 307137,
+    "grade": "D",
+    "score": 48,
+    "tools": 0,
+    "findings": [
+      {
+        "ruleId": "MC003",
+        "severity": "critical",
+        "file": "lib/guessCI.js",
+        "line": 18
+      },
+      {
+        "ruleId": "MC015",
+        "severity": "medium",
+        "file": "lib/telemetry.js",
+        "line": 33
+      },
+      {
+        "ruleId": "MC015",
+        "severity": "medium",
+        "file": "lib/telemetry.js",
+        "line": 40
+      },
+      {
+        "ruleId": "MC015",
+        "severity": "medium",
+        "file": "lib/telemetry.js",
+        "line": 41
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "lib/tools/enable_tools.js",
+        "line": 54
+      }
+    ]
+  },
+  {
+    "name": "next-devtools-mcp",
+    "downloads": 306610,
+    "grade": "D",
+    "score": 58,
+    "tools": 4,
+    "findings": [
+      {
+        "ruleId": "TD005",
+        "severity": "high",
+        "file": "dist/tools/nextjs_index.js",
+        "line": 11
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/_internal/nextjs-runtime-manager.js",
+        "line": 3
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/index.js",
+        "line": 5
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/tools/browser-eval.js",
+        "line": 2
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/tools/browser-eval.js",
+        "line": 30
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/tools/browser-eval.js",
+        "line": 39
+      }
+    ]
+  },
+  {
+    "name": "@supabase/mcp-utils",
+    "downloads": 298759,
+    "grade": "A",
+    "score": 100,
+    "tools": 0,
+    "findings": []
+  },
+  {
+    "name": "mcp-evals",
+    "downloads": 296225,
+    "grade": "D",
+    "score": 50,
+    "tools": 0,
+    "findings": [
+      {
+        "ruleId": "MC003",
+        "severity": "critical",
+        "file": "dist/index.js",
+        "line": 9
+      },
+      {
+        "ruleId": "MC003",
+        "severity": "critical",
+        "file": "dist/index.js",
+        "line": 84
+      }
+    ]
+  },
+  {
+    "name": "@cap-js/mcp-server",
+    "downloads": 294788,
+    "grade": "A",
+    "score": 100,
+    "tools": 1,
+    "findings": []
+  },
+  {
+    "name": "xcodebuildmcp",
+    "downloads": 292044,
+    "grade": "F",
+    "score": 0,
+    "tools": 0,
+    "findings": [
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/benchmarks/claude-ui/harness.js",
+        "line": 1
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/benchmarks/claude-ui/preflight-commands.js",
+        "line": 1
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/benchmarks/claude-ui/simulator-lifecycle.js",
+        "line": 1
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/cli/commands/upgrade.js",
+        "line": 2
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/cli/daemon-control.js",
+        "line": 1
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/integrations/xcode-tools-bridge/core.js",
+        "line": 1
+      },
+      {
+        "ruleId": "MC003",
+        "severity": "critical",
+        "file": "build/mcp/tools/doctor/lib/doctor.deps.js",
+        "line": 108
+      },
+      {
+        "ruleId": "MC015",
+        "severity": "medium",
+        "file": "build/mcp/tools/doctor/lib/doctor.deps.js",
+        "line": 122
+      },
+      {
+        "ruleId": "MC015",
+        "severity": "medium",
+        "file": "build/mcp/tools/doctor/lib/doctor.deps.js",
+        "line": 123
+      },
+      {
+        "ruleId": "MC003",
+        "severity": "critical",
+        "file": "build/mcp/tools/swift-package/swift_package_run.js",
+        "line": 130
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/snapshot-tests/device-availability.js",
+        "line": 1
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "build/snapshot-tests/device-availability.js",
+        "line": 13
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/snapshot-tests/harness.js",
+        "line": 1
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/snapshot-tests/harness.js",
+        "line": 33
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "build/snapshot-tests/harness.js",
+        "line": 132
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "build/snapshot-tests/harness.js",
+        "line": 181
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "build/snapshot-tests/harness.js",
+        "line": 206
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "build/snapshot-tests/harness.js",
+        "line": 207
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "build/snapshot-tests/harness.js",
+        "line": 213
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "build/snapshot-tests/harness.js",
+        "line": 225
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "build/snapshot-tests/harness.js",
+        "line": 230
+      },
+      {
+        "ruleId": "MC015",
+        "severity": "medium",
+        "file": "build/snapshot-tests/normalize.js",
+        "line": 155
+      },
+      {
+        "ruleId": "MC015",
+        "severity": "medium",
+        "file": "build/snapshot-tests/normalize.js",
+        "line": 163
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/snapshot-tests/suites/debugging-suite.js",
+        "line": 2
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "build/snapshot-tests/suites/debugging-suite.js",
+        "line": 70
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/snapshot-tests/suites/swift-package-suite.js",
+        "line": 1
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "build/snapshot-tests/suites/swift-package-suite.js",
+        "line": 32
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "build/snapshot-tests/suites/swift-package-suite.js",
+        "line": 36
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/snapshot-tests/suites/xcode-ide-suite.js",
+        "line": 1
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/snapshot-tests/xcode-ide-availability.js",
+        "line": 1
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "build/snapshot-tests/xcode-ide-availability.js",
+        "line": 5
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "build/snapshot-tests/xcode-ide-availability.js",
+        "line": 9
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/test-utils/mock-executors.js",
+        "line": 1
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/utils/CommandExecutor.js",
+        "line": 1
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/utils/command.js",
+        "line": 1
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/utils/device-name-resolver.js",
+        "line": 1
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "build/utils/device-name-resolver.js",
+        "line": 15
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/utils/environment.js",
+        "line": 1
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "build/utils/environment.js",
+        "line": 21
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/utils/execution/interactive-process.js",
+        "line": 1
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/utils/log-capture/simulator-launch-oslog-registry.js",
+        "line": 1
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/utils/simulator-steps.js",
+        "line": 3
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/utils/xcresult-test-failures.js",
+        "line": 1
+      }
+    ]
+  },
+  {
+    "name": "@supabase/mcp-server-supabase",
+    "downloads": 274560,
+    "grade": "A",
+    "score": 100,
+    "tools": 2,
+    "findings": []
+  },
+  {
+    "name": "hlims-mcp",
+    "downloads": 263067,
+    "grade": "A",
+    "score": 100,
+    "tools": 0,
+    "findings": []
+  },
+  {
+    "name": "@metorial/mcp-sdk-utils",
+    "downloads": 257879,
+    "grade": "A",
+    "score": 100,
+    "tools": 0,
+    "findings": []
+  },
+  {
+    "name": "mcp-framework",
+    "downloads": 244916,
+    "grade": "D",
+    "score": 48,
+    "tools": 4,
+    "findings": [
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/cli/index.js",
+        "line": 3
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/cli/index.js",
+        "line": 16
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/cli/project/create.js",
+        "line": 2
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/cli/project/create.js",
+        "line": 326
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/cli/project/create.js",
+        "line": 328
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/cli/project/create.js",
+        "line": 336
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/cli/project/create.js",
+        "line": 338
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/serverless/lambda-adapter.js",
+        "line": 93
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/transports/utils/image-handler.js",
+        "line": 42
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/transports/utils/image-handler.js",
+        "line": 65
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/transports/utils/image-handler.js",
+        "line": 75
+      }
+    ]
+  },
+  {
+    "name": "nx-mcp",
+    "downloads": 238923,
+    "grade": "A",
+    "score": 100,
+    "tools": 0,
+    "findings": []
+  },
+  {
+    "name": "@metorial/mcp-session",
+    "downloads": 235338,
+    "grade": "A",
+    "score": 100,
+    "tools": 0,
+    "findings": []
+  },
+  {
+    "name": "@salesforce/mcp-provider-dx-core",
+    "downloads": 229744,
+    "grade": "F",
+    "score": 0,
+    "tools": 0,
+    "findings": [
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "lib/tools/assign_permission_set.js",
+        "line": 85
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "lib/tools/create_org_snapshot.js",
+        "line": 71
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "lib/tools/create_scratch_org.js",
+        "line": 117
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "lib/tools/delete_org.js",
+        "line": 67
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "lib/tools/deploy_metadata.js",
+        "line": 113
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "lib/tools/get_username.js",
+        "line": 108
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "lib/tools/list_all_orgs.js",
+        "line": 69
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "lib/tools/open_org.js",
+        "line": 60
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "lib/tools/resume_tool_operation.js",
+        "line": 94
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "lib/tools/retrieve_metadata.js",
+        "line": 89
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "lib/tools/run_agent_test.js",
+        "line": 82
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "lib/tools/run_apex_test.js",
+        "line": 113
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "lib/tools/run_soql_query.js",
+        "line": 65
+      }
+    ]
+  },
+  {
+    "name": "@salesforce/mcp-provider-code-analyzer",
+    "downloads": 222286,
+    "grade": "F",
+    "score": 0,
+    "tools": 911,
+    "findings": [
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "dist/actions/create-regex-custom-rule.js",
+        "line": 5
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "dist/actions/create-xpath-custom-rule.js",
+        "line": 6
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "dist/actions/describe-rule.js",
+        "line": 16
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "dist/actions/get-ast-nodes.js",
+        "line": 3
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "dist/actions/list-rules.js",
+        "line": 16
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "dist/actions/query-results.js",
+        "line": 6
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "dist/actions/run-analyzer.js",
+        "line": 19
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "dist/tools/create_custom_rule.js",
+        "line": 102
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "dist/tools/describe_code_analyzer_rule.js",
+        "line": 60
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "dist/tools/generate_xpath_prompt.js",
+        "line": 78
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "dist/tools/list_code_analyzer_rules.js",
+        "line": 148
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "dist/tools/query_code_analyzer_results.js",
+        "line": 84
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "dist/tools/run_code_analyzer.js",
+        "line": 97
+      }
+    ]
+  },
+  {
+    "name": "@salesforce/mcp-provider-lwc-experts",
+    "downloads": 219211,
+    "grade": "A",
+    "score": 100,
+    "tools": 0,
+    "findings": []
+  },
+  {
+    "name": "@azure/mcp-win32-x64",
+    "downloads": 214286,
+    "grade": "A",
+    "score": 98,
+    "tools": 0,
+    "findings": [
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "index.js",
+        "line": 5
+      }
+    ]
+  },
+  {
+    "name": "@salesforce/mcp-provider-devops",
+    "downloads": 213408,
+    "grade": "F",
+    "score": 0,
+    "tools": 0,
+    "findings": [
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/commitLiteWorkItem.js",
+        "line": 1
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/shared/dependencyInBranch.js",
+        "line": 1
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/shared/gitUtils.js",
+        "line": 3
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/shared/gitUtils.js",
+        "line": 46
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/shared/gitUtils.js",
+        "line": 57
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/shared/gitUtils.js",
+        "line": 92
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "dist/tools/checkCommitStatus.js",
+        "line": 45
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "dist/tools/createPullRequest.js",
+        "line": 71
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "dist/tools/sfDevopsCheckoutWorkItem.js",
+        "line": 119
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "dist/tools/sfDevopsCommitWorkItem.js",
+        "line": 122
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "dist/tools/sfDevopsCreateWorkItem.js",
+        "line": 75
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "dist/tools/sfDevopsDetectConflict.js",
+        "line": 169
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "dist/tools/sfDevopsListProjects.js",
+        "line": 47
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "dist/tools/sfDevopsListWorkItems.js",
+        "line": 57
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "dist/tools/sfDevopsPromoteWorkItem.js",
+        "line": 70
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "dist/tools/sfDevopsResolveConflict.js",
+        "line": 79
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/tools/sfDevopsResolveDeploymentFailure.js",
+        "line": 1
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "dist/tools/sfDevopsResolveDeploymentFailure.js",
+        "line": 50
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "dist/tools/sfDevopsUpdateWorkItemStatus.js",
+        "line": 78
+      }
+    ]
+  },
+  {
+    "name": "@vercel/mcp-adapter",
+    "downloads": 212388,
+    "grade": "A",
+    "score": 100,
+    "tools": 0,
+    "findings": []
+  },
+  {
+    "name": "@salesforce/mcp-provider-aura-experts",
+    "downloads": 212293,
+    "grade": "A",
+    "score": 100,
+    "tools": 0,
+    "findings": []
+  },
+  {
+    "name": "@payloadcms/plugin-mcp",
+    "downloads": 208138,
+    "grade": "B",
+    "score": 88,
+    "tools": 21,
+    "findings": [
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "src/utils/schemaConversion/convertCollectionSchemaToZod.ts",
+        "line": 39
+      }
+    ]
+  },
+  {
+    "name": "@claude-flow/mcp",
+    "downloads": 200659,
+    "grade": "F",
+    "score": 0,
+    "tools": 10,
+    "findings": [
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": ".claude/helpers/github-safe.js",
+        "line": 12
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": ".claude/helpers/github-safe.js",
+        "line": 83
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": ".claude/helpers/github-safe.js",
+        "line": 101
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": ".claude/helpers/github-safe.js",
+        "line": 105
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": ".claude/helpers/learning-service.mjs",
+        "line": 24
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": ".claude/helpers/learning-service.mjs",
+        "line": 82
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": ".claude/helpers/metrics-db.mjs",
+        "line": 12
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": ".claude/helpers/metrics-db.mjs",
+        "line": 102
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": ".claude/helpers/metrics-db.mjs",
+        "line": 107
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": ".claude/helpers/metrics-db.mjs",
+        "line": 112
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": ".claude/helpers/metrics-db.mjs",
+        "line": 117
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": ".claude/helpers/metrics-db.mjs",
+        "line": 123
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": ".claude/helpers/metrics-db.mjs",
+        "line": 228
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": ".claude/helpers/metrics-db.mjs",
+        "line": 365
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": ".claude/helpers/metrics-db.mjs",
+        "line": 366
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": ".claude/helpers/metrics-db.mjs",
+        "line": 367
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": ".claude/helpers/metrics-db.mjs",
+        "line": 368
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": ".claude/helpers/statusline.cjs",
+        "line": 28
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": ".claude/helpers/statusline.cjs",
+        "line": 80
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": ".claude/helpers/statusline.cjs",
+        "line": 81
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": ".claude/helpers/statusline.cjs",
+        "line": 253
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": ".claude/helpers/statusline.cjs",
+        "line": 256
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": ".claude/helpers/statusline.cjs",
+        "line": 282
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": ".claude/helpers/statusline.cjs",
+        "line": 303
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": ".claude/helpers/statusline.cjs",
+        "line": 306
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": ".claude/helpers/statusline.js",
+        "line": 11
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": ".claude/helpers/statusline.js",
+        "line": 53
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": ".claude/helpers/statusline.js",
+        "line": 54
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": ".claude/helpers/statusline.js",
+        "line": 175
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": ".claude/helpers/statusline.js",
+        "line": 195
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": ".claude/helpers/statusline.js",
+        "line": 213
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "src/prompt-registry.ts",
+        "line": 212
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "src/resource-registry.ts",
+        "line": 411
+      }
+    ]
+  },
+  {
+    "name": "@azure/mcp-linux-x64",
+    "downloads": 197126,
+    "grade": "A",
+    "score": 98,
+    "tools": 0,
+    "findings": [
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "index.js",
+        "line": 5
+      }
+    ]
+  },
+  {
+    "name": "@redocly/mcp-typescript-sdk",
+    "downloads": 187828,
+    "grade": "A",
+    "score": 100,
+    "tools": 0,
+    "findings": []
+  },
+  {
+    "name": "@anthropic-ai/mcpb",
+    "downloads": 177145,
+    "grade": "F",
+    "score": 59,
+    "tools": 0,
+    "findings": [
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/cli/cli.js",
+        "line": 2
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/cli/cli.js",
+        "line": 26
+      },
+      {
+        "ruleId": "MC004",
+        "severity": "critical",
+        "file": "dist/node/files.js",
+        "line": 14
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/node/sign.js",
+        "line": 1
+      }
+    ]
+  },
+  {
+    "name": "n8n-nodes-mcp",
+    "downloads": 170983,
+    "grade": "A",
+    "score": 100,
+    "tools": 19,
+    "findings": []
+  },
+  {
+    "name": "@mongodb-js/mcp-metrics",
+    "downloads": 167964,
+    "grade": "A",
+    "score": 100,
+    "tools": 0,
+    "findings": []
+  },
+  {
+    "name": "@traceloop/instrumentation-mcp",
+    "downloads": 164672,
+    "grade": "A",
+    "score": 100,
+    "tools": 0,
+    "findings": []
+  },
+  {
+    "name": "hostinger-api-mcp",
+    "downloads": 162708,
+    "grade": "D",
+    "score": 58,
+    "tools": 4,
+    "findings": [
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build.js",
+        "line": 3
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "build.js",
+        "line": 19
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "src/core/oauth.js",
+        "line": 5
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "src/core/oauth.js",
+        "line": 398
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "src/core/oauth.ts",
+        "line": 5
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "src/core/oauth.ts",
+        "line": 368
+      }
+    ]
+  },
+  {
+    "name": "@transcend-io/mcp-server-discovery",
+    "downloads": 162546,
+    "grade": "A",
+    "score": 100,
+    "tools": 4,
+    "findings": []
+  },
+  {
+    "name": "@transcend-io/mcp-server-preferences",
+    "downloads": 162255,
+    "grade": "A",
+    "score": 100,
+    "tools": 6,
+    "findings": []
+  },
+  {
+    "name": "@gongrzhe/server-gmail-autoauth-mcp",
+    "downloads": 155557,
+    "grade": "A",
+    "score": 98,
+    "tools": 28,
+    "findings": [
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/index.js",
+        "line": 35
+      }
+    ]
+  },
+  {
+    "name": "@n8n/mcp-browser",
+    "downloads": 154593,
+    "grade": "A",
+    "score": 94,
+    "tools": 3,
+    "findings": [
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/adapters/agent-browser.js",
+        "line": 4
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/adapters/playwright.js",
+        "line": 4
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/browser-discovery.js",
+        "line": 10
+      }
+    ]
+  },
+  {
+    "name": "mcp-use",
+    "downloads": 152289,
+    "grade": "B",
+    "score": 82,
+    "tools": 59,
+    "findings": [
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/chunk-HDFPTC56.js",
+        "line": 102
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/chunk-MCYFETK3.js",
+        "line": 229
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/index.cjs",
+        "line": 9808
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/src/auth/index-node.cjs",
+        "line": 212
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/src/auth/index.cjs",
+        "line": 150
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/src/browser.cjs",
+        "line": 3218
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/src/react/index.cjs",
+        "line": 3729
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/src/server/index.cjs",
+        "line": 14067
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/src/server/index.js",
+        "line": 6216
+      }
+    ]
+  },
+  {
+    "name": "@felores/airtable-mcp-server",
+    "downloads": 149486,
+    "grade": "A",
+    "score": 100,
+    "tools": 12,
+    "findings": []
+  },
+  {
+    "name": "@mcp-use/cli",
+    "downloads": 144985,
+    "grade": "D",
+    "score": 52,
+    "tools": 2,
+    "findings": [
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/index.cjs",
+        "line": 528
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/index.cjs",
+        "line": 539
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/index.cjs",
+        "line": 544
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/index.cjs",
+        "line": 620
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/index.cjs",
+        "line": 752
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/index.cjs",
+        "line": 757
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/index.cjs",
+        "line": 775
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/index.cjs",
+        "line": 798
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/index.cjs",
+        "line": 2793
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/index.cjs",
+        "line": 2800
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/index.cjs",
+        "line": 3097
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/index.cjs",
+        "line": 4639
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/index.js",
+        "line": 508
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/index.js",
+        "line": 519
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/index.js",
+        "line": 524
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/index.js",
+        "line": 600
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/index.js",
+        "line": 732
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/index.js",
+        "line": 737
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/index.js",
+        "line": 755
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/index.js",
+        "line": 778
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/index.js",
+        "line": 2778
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/index.js",
+        "line": 2785
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/index.js",
+        "line": 3082
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/index.js",
+        "line": 4624
+      }
+    ]
+  },
+  {
+    "name": "@mcp-use/inspector",
+    "downloads": 143417,
+    "grade": "C",
+    "score": 74,
+    "tools": 2,
+    "findings": [
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/cli.js",
+        "line": 2631
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/cli.js",
+        "line": 2757
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/client/index.js",
+        "line": 8301
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/client/index.js",
+        "line": 10136
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/server/chunk-A4VH7AIP.js",
+        "line": 314
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/server/chunk-QQ37LGLJ.js",
+        "line": 2
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "dist/web/assets/core-RF6LzkSx.js",
+        "line": 1
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/web/assets/module-3nkmv-tD.js",
+        "line": 2
+      }
+    ]
+  },
+  {
+    "name": "@n8n/mcp-apps",
+    "downloads": 142202,
+    "grade": "A",
+    "score": 100,
+    "tools": 0,
+    "findings": []
+  },
+  {
+    "name": "@transcend-io/mcp-server-workflows",
+    "downloads": 140017,
+    "grade": "A",
+    "score": 100,
+    "tools": 3,
+    "findings": []
+  },
+  {
+    "name": "@transcend-io/mcp-server-inventory",
+    "downloads": 139939,
+    "grade": "A",
+    "score": 100,
+    "tools": 10,
+    "findings": []
+  },
+  {
+    "name": "@circleci/mcp-server-circleci",
+    "downloads": 138344,
+    "grade": "A",
+    "score": 100,
+    "tools": 15,
+    "findings": []
+  },
+  {
+    "name": "@transcend-io/mcp-server-base",
+    "downloads": 134035,
+    "grade": "A",
+    "score": 100,
+    "tools": 0,
+    "findings": []
+  },
+  {
+    "name": "tavily-mcp",
+    "downloads": 128697,
+    "grade": "A",
+    "score": 100,
+    "tools": 10,
+    "findings": []
+  },
+  {
+    "name": "@github/computer-use-mcp",
+    "downloads": 128478,
+    "grade": "A",
+    "score": 98,
+    "tools": 0,
+    "findings": [
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "index.js",
+        "line": 1
+      }
+    ]
+  },
+  {
+    "name": "@softeria/ms-365-mcp-server",
+    "downloads": 127335,
+    "grade": "C",
+    "score": 72,
+    "tools": 0,
+    "findings": [
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "bin/modules/generate-mcp-tools.mjs",
+        "line": 3
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "bin/modules/generate-mcp-tools.mjs",
+        "line": 17
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "bin/modules/generate-mcp-tools.mjs",
+        "line": 64
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "test-calendar-fix.js",
+        "line": 6
+      }
+    ]
+  },
+  {
+    "name": "mcp-hello-world",
+    "downloads": 127016,
+    "grade": "A",
+    "score": 100,
+    "tools": 3,
+    "findings": []
+  },
+  {
+    "name": "pi-mcp-adapter",
+    "downloads": 124901,
+    "grade": "F",
+    "score": 15,
+    "tools": 1,
+    "findings": [
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "app-bridge.bundle.js",
+        "line": 4
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "app-bridge.bundle.js",
+        "line": 29
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "glimpse-ui.ts",
+        "line": 2
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "npx-resolver.ts",
+        "line": 5
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "npx-resolver.ts",
+        "line": 357
+      },
+      {
+        "ruleId": "MC003",
+        "severity": "critical",
+        "file": "server-manager.ts",
+        "line": 479
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "ui-resource-handler.ts",
+        "line": 119
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "utils.ts",
+        "line": 10
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "utils.ts",
+        "line": 14
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "utils.ts",
+        "line": 15
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "utils.ts",
+        "line": 17
+      }
+    ]
+  },
+  {
+    "name": "@eslint/mcp",
+    "downloads": 116039,
+    "grade": "A",
+    "score": 100,
+    "tools": 1,
+    "findings": []
+  },
+  {
+    "name": "@mcp-use/modelcontextprotocol-sdk",
+    "downloads": 114013,
+    "grade": "C",
+    "score": 64,
+    "tools": 56,
+    "findings": [
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/cjs/examples/client/elicitationUrlExample.js",
+        "line": 14
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/cjs/examples/client/simpleOAuthClient.js",
+        "line": 7
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/cjs/types.js",
+        "line": 702
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/esm/examples/client/elicitationUrlExample.js",
+        "line": 12
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "dist/esm/examples/client/elicitationUrlExample.js",
+        "line": 205
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/esm/examples/client/simpleOAuthClient.js",
+        "line": 5
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "dist/esm/examples/client/simpleOAuthClient.js",
+        "line": 43
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/esm/types.js",
+        "line": 685
+      }
+    ]
+  },
+  {
+    "name": "workers-mcp",
+    "downloads": 112907,
+    "grade": "A",
+    "score": 98,
+    "tools": 1,
+    "findings": [
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/cli.js",
+        "line": 164
+      }
+    ]
+  },
+  {
+    "name": "use-mcp",
+    "downloads": 111601,
+    "grade": "A",
+    "score": 100,
+    "tools": 0,
+    "findings": []
+  },
+  {
+    "name": "slack-mcp-server",
+    "downloads": 111272,
+    "grade": "A",
+    "score": 98,
+    "tools": 0,
+    "findings": [
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "bin/index.js",
+        "line": 5
+      }
+    ]
+  },
+  {
+    "name": "@ericthered926/duckduckgo-mcp-server",
+    "downloads": 111021,
+    "grade": "A",
+    "score": 100,
+    "tools": 2,
+    "findings": []
+  },
+  {
+    "name": "@mastra/mcp-docs-server",
+    "downloads": 107300,
+    "grade": "A",
+    "score": 95,
+    "tools": 16,
+    "findings": [
+      {
+        "ruleId": "TD009",
+        "severity": "medium",
+        "file": "dist/chunk-GLPCVXXO.js",
+        "line": 1054
+      }
+    ]
+  },
+  {
+    "name": "hono-mcp-server-sse-transport",
+    "downloads": 105902,
+    "grade": "A",
+    "score": 100,
+    "tools": 0,
+    "findings": []
+  },
+  {
+    "name": "@drawio/mcp",
+    "downloads": 105556,
+    "grade": "C",
+    "score": 60,
+    "tools": 7,
+    "findings": [
+      {
+        "ruleId": "MC008",
+        "severity": "high",
+        "file": "package.json",
+        "line": 15
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "src/index.js",
+        "line": 9
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "src/pages.js",
+        "line": 114
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "vendor/libavoid/libavoid-node.mjs",
+        "line": 16
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "vendor/libavoid/libavoid-node.mjs",
+        "line": 20
+      }
+    ]
+  },
+  {
+    "name": "@wong2/mcp-cli",
+    "downloads": 103441,
+    "grade": "A",
+    "score": 100,
+    "tools": 0,
+    "findings": []
+  },
+  {
+    "name": "kubernetes-mcp-server",
+    "downloads": 102267,
+    "grade": "A",
+    "score": 98,
+    "tools": 0,
+    "findings": [
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "bin/index.js",
+        "line": 3
+      }
+    ]
+  },
+  {
+    "name": "@azure/mcp-darwin-arm64",
+    "downloads": 101460,
+    "grade": "A",
+    "score": 98,
+    "tools": 0,
+    "findings": [
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "index.js",
+        "line": 5
+      }
+    ]
+  },
+  {
+    "name": "mcp-auth",
+    "downloads": 100228,
+    "grade": "A",
+    "score": 100,
+    "tools": 0,
+    "findings": []
+  },
+  {
+    "name": "resend-mcp",
+    "downloads": 98751,
+    "grade": "A",
+    "score": 98,
+    "tools": 81,
+    "findings": [
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/tools/emails.js",
+        "line": 162
+      }
+    ]
+  },
+  {
+    "name": "mcp-searxng",
+    "downloads": 97153,
+    "grade": "A",
+    "score": 100,
+    "tools": 11,
+    "findings": []
+  },
+  {
+    "name": "@taazkareem/clickup-mcp-server",
+    "downloads": 97064,
+    "grade": "A",
+    "score": 100,
+    "tools": 0,
+    "findings": []
+  },
+  {
+    "name": "@penpot/mcp",
+    "downloads": 90723,
+    "grade": "C",
+    "score": 70,
+    "tools": 0,
+    "findings": [
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "bin/mcp-local.js",
+        "line": 3
+      },
+      {
+        "ruleId": "MC001",
+        "severity": "high",
+        "file": "bin/mcp-local.js",
+        "line": 10
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "packages/plugin/src/PenpotUtils.ts",
+        "line": 326
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "packages/plugin/src/task-handlers/ExecuteCodeTaskHandler.ts",
+        "line": 226
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "packages/server/src/ToolResponse.ts",
+        "line": 56
+      }
+    ]
+  },
+  {
+    "name": "@posthog/mcp",
+    "downloads": 90626,
+    "grade": "A",
+    "score": 96,
+    "tools": 0,
+    "findings": [
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "src/extensions/session-token.ts",
+        "line": 160
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "src/extensions/session-token.ts",
+        "line": 162
+      }
+    ]
+  },
+  {
+    "name": "@mcp-b/webmcp-ts-sdk",
+    "downloads": 90251,
+    "grade": "A",
+    "score": 100,
+    "tools": 0,
+    "findings": []
+  },
+  {
+    "name": "@transcend-io/mcp-server-docs",
+    "downloads": 90018,
+    "grade": "A",
+    "score": 100,
+    "tools": 2,
+    "findings": []
+  },
+  {
+    "name": "@mcp-b/transports",
+    "downloads": 89358,
+    "grade": "A",
+    "score": 100,
+    "tools": 0,
+    "findings": []
+  },
+  {
+    "name": "@benborla29/mcp-server-mysql",
+    "downloads": 86620,
+    "grade": "A",
+    "score": 100,
+    "tools": 5,
+    "findings": []
+  },
+  {
+    "name": "@antv/mcp-server-chart",
+    "downloads": 85868,
+    "grade": "A",
+    "score": 100,
+    "tools": 30,
+    "findings": []
+  },
+  {
+    "name": "@launchdarkly/mcp-server",
+    "downloads": 84408,
+    "grade": "A",
+    "score": 98,
+    "tools": 20,
+    "findings": [
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "src/lib/base64.ts",
+        "line": 12
+      }
+    ]
+  },
+  {
+    "name": "kubernetes-mcp-server-linux-amd64",
+    "downloads": 83730,
+    "grade": "A",
+    "score": 100,
+    "tools": 0,
+    "findings": []
+  },
+  {
+    "name": "argocd-mcp",
+    "downloads": 83375,
+    "grade": "A",
+    "score": 100,
+    "tools": 1,
+    "findings": []
+  },
+  {
+    "name": "@microsoft/workiq",
+    "downloads": 82841,
+    "grade": "A",
+    "score": 98,
+    "tools": 0,
+    "findings": [
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "bin/workiq.js",
+        "line": 3
+      }
+    ]
+  },
+  {
+    "name": "mcp-registry-spec-sdk",
+    "downloads": 82446,
+    "grade": "A",
+    "score": 100,
+    "tools": 0,
+    "findings": []
+  },
+  {
+    "name": "@mobilenext/mobile-mcp",
+    "downloads": 80710,
+    "grade": "B",
+    "score": 88,
+    "tools": 1,
+    "findings": [
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "lib/android.js",
+        "line": 41
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "lib/image-utils.js",
+        "line": 7
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "lib/ios.js",
+        "line": 5
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "lib/iphone-simulator.js",
+        "line": 4
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "lib/mobilecli.js",
+        "line": 6
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "lib/webdriver-agent.js",
+        "line": 255
+      }
+    ]
+  },
+  {
+    "name": "samarth-gtm-mcp",
+    "downloads": 78562,
+    "grade": "B",
+    "score": 86,
+    "tools": 87,
+    "findings": [
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/scripts/auth-google.js",
+        "line": 26
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "dist/scripts/auth-google.js",
+        "line": 33
+      }
+    ]
+  },
+  {
+    "name": "@currents/mcp",
+    "downloads": 75185,
+    "grade": "A",
+    "score": 100,
+    "tools": 76,
+    "findings": []
+  },
+  {
+    "name": "@executeautomation/playwright-mcp-server",
+    "downloads": 74174,
+    "grade": "A",
+    "score": 98,
+    "tools": 41,
+    "findings": [
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/toolHandler.js",
+        "line": 4
+      }
+    ]
+  },
+  {
+    "name": "@winor30/mcp-server-datadog",
+    "downloads": 71677,
+    "grade": "A",
+    "score": 100,
+    "tools": 0,
+    "findings": []
+  },
+  {
+    "name": "@aikidosec/mcp",
+    "downloads": 71581,
+    "grade": "A",
+    "score": 92,
+    "tools": 2,
+    "findings": [
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/index.js",
+        "line": 2
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/index.js",
+        "line": 31
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/index.js",
+        "line": 83
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/index.js",
+        "line": 108
+      }
+    ]
+  },
+  {
+    "name": "@anyproto/anytype-mcp",
+    "downloads": 69485,
+    "grade": "C",
+    "score": 71,
+    "tools": 35,
+    "findings": [
+      {
+        "ruleId": "MC003",
+        "severity": "critical",
+        "file": "bin/cli.mjs",
+        "line": 4
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "bin/cli.mjs",
+        "line": 88
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "bin/cli.mjs",
+        "line": 151
+      }
+    ]
+  },
+  {
+    "name": "@brave/brave-search-mcp-server",
+    "downloads": 66899,
+    "grade": "A",
+    "score": 100,
+    "tools": 0,
+    "findings": []
+  },
+  {
+    "name": "@modelcontextprotocol/client",
+    "downloads": 64770,
+    "grade": "C",
+    "score": 64,
+    "tools": 0,
+    "findings": [
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "dist/ajvProvider-Asx17_Co.mjs",
+        "line": 2593
+      },
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "dist/ajvProvider-DNzBrkxq.cjs",
+        "line": 2593
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/src-CMjk3S93.mjs",
+        "line": 769
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/src-CMjk3S93.mjs",
+        "line": 2343
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/src-DNmw6OZV.cjs",
+        "line": 770
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/src-DNmw6OZV.cjs",
+        "line": 2344
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/stdio.d.cts",
+        "line": 2
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/stdio.d.mts",
+        "line": 3
+      }
+    ]
+  },
+  {
+    "name": "openapi-mcp-generator",
+    "downloads": 63812,
+    "grade": "B",
+    "score": 88,
+    "tools": 0,
+    "findings": [
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "dist/generator/server-code.js",
+        "line": 238
+      }
+    ]
+  },
+  {
+    "name": "@sveltejs/mcp",
+    "downloads": 63480,
+    "grade": "A",
+    "score": 100,
+    "tools": 0,
+    "findings": []
+  },
+  {
+    "name": "@forestadmin/mcp-server",
+    "downloads": 62027,
+    "grade": "A",
+    "score": 100,
+    "tools": 0,
+    "findings": []
+  },
+  {
+    "name": "mcp-server-kubernetes",
+    "downloads": 61844,
+    "grade": "A",
+    "score": 96,
+    "tools": 33,
+    "findings": [
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/security/kubectl-flags.js",
+        "line": 2
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/tools/port_forward.js",
+        "line": 1
+      }
+    ]
+  },
+  {
+    "name": "xmcp",
+    "downloads": 61651,
+    "grade": "B",
+    "score": 82,
+    "tools": 2,
+    "findings": [
+      {
+        "ruleId": "MC002",
+        "severity": "high",
+        "file": "src/compiler/parse-xmcp-config.ts",
+        "line": 173
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "src/compiler/start-http-server.ts",
+        "line": 3
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "src/telemetry/events/tracker.ts",
+        "line": 224
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "src/utils/spawn-process.ts",
+        "line": 7
+      }
+    ]
+  },
+  {
+    "name": "@negokaz/excel-mcp-server",
+    "downloads": 61124,
+    "grade": "A",
+    "score": 96,
+    "tools": 0,
+    "findings": [
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/launcher.js",
+        "line": 38
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "launcher/launcher.ts",
+        "line": 3
+      }
+    ]
+  },
+  {
+    "name": "@apify/actors-mcp-server",
+    "downloads": 59832,
+    "grade": "A",
+    "score": 96,
+    "tools": 5,
+    "findings": [
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/payments/x402.js",
+        "line": 111
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/utils/payment_errors.js",
+        "line": 32
+      }
+    ]
+  },
+  {
+    "name": "@serdnaley/metabase-mcp",
+    "downloads": 58698,
+    "grade": "A",
+    "score": 100,
+    "tools": 0,
+    "findings": []
+  },
+  {
+    "name": "@zuplo/mcp",
+    "downloads": 58582,
+    "grade": "A",
+    "score": 100,
+    "tools": 0,
+    "findings": []
+  },
+  {
+    "name": "@modelcontextprotocol/node",
+    "downloads": 57786,
+    "grade": "A",
+    "score": 100,
+    "tools": 0,
+    "findings": []
+  },
+  {
+    "name": "serper-search-scrape-mcp-server",
+    "downloads": 55510,
+    "grade": "A",
+    "score": 100,
+    "tools": 16,
+    "findings": []
+  },
+  {
+    "name": "agnost",
+    "downloads": 53459,
+    "grade": "A",
+    "score": 100,
+    "tools": 0,
+    "findings": []
+  },
+  {
+    "name": "@stripe/mcp",
+    "downloads": 53234,
+    "grade": "A",
+    "score": 100,
+    "tools": 0,
+    "findings": []
+  },
+  {
+    "name": "mcp-lite",
+    "downloads": 52174,
+    "grade": "A",
+    "score": 100,
+    "tools": 10,
+    "findings": []
+  },
+  {
+    "name": "@netlify/mcp",
+    "downloads": 52094,
+    "grade": "A",
+    "score": 98,
+    "tools": 1,
+    "findings": [
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "dist/netlify-mcp.js",
+        "line": 50
+      }
+    ]
+  },
+  {
+    "name": "@smartbear/mcp",
+    "downloads": 51905,
+    "grade": "A",
+    "score": 96,
+    "tools": 18,
+    "findings": [
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/qmetry/client/automation.js",
+        "line": 16
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/qmetry/client/automation.js",
+        "line": 34
+      }
+    ]
+  },
+  {
+    "name": "@hubspot/mcp-server",
+    "downloads": 51706,
+    "grade": "A",
+    "score": 100,
+    "tools": 22,
+    "findings": []
+  },
+  {
+    "name": "@bangdao-ai/acw-tools",
+    "downloads": 50819,
+    "grade": "B",
+    "score": 88,
+    "tools": 0,
+    "findings": [
+      {
+        "ruleId": "MC008",
+        "severity": "high",
+        "file": "package.json",
+        "line": 14
+      }
+    ]
+  },
+  {
+    "name": "@shortcut/mcp",
+    "downloads": 50719,
+    "grade": "A",
+    "score": 100,
+    "tools": 0,
+    "findings": []
+  },
+  {
+    "name": "@cyanheads/mcp-ts-core",
+    "downloads": 50387,
+    "grade": "F",
+    "score": 9,
+    "tools": 10,
+    "findings": [
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/services/speech/providers/whisper.provider.js",
+        "line": 93
+      },
+      {
+        "ruleId": "MC004",
+        "severity": "critical",
+        "file": "dist/testing/fuzz.js",
+        "line": 158
+      },
+      {
+        "ruleId": "MC004",
+        "severity": "critical",
+        "file": "dist/testing/fuzz.js",
+        "line": 162
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/utils/internal/encoding.js",
+        "line": 75
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/utils/internal/encoding.js",
+        "line": 79
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "scripts/build.ts",
+        "line": 16
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "scripts/check-framework-antipatterns.ts",
+        "line": 29
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "scripts/check-framework-antipatterns.ts",
+        "line": 72
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "scripts/devcheck.ts",
+        "line": 2
+      },
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "scripts/devcheck.ts",
+        "line": 262
+      },
+      {
+        "ruleId": "MC004",
+        "severity": "critical",
+        "file": "scripts/devcheck.ts",
+        "line": 392
+      }
+    ]
+  },
+  {
+    "name": "@browserbasehq/mcp",
+    "downloads": 50073,
+    "grade": "A",
+    "score": 100,
+    "tools": 7,
+    "findings": []
+  },
+  {
+    "name": "@gleanwork/mcp-config-schema",
+    "downloads": 49312,
+    "grade": "B",
+    "score": 88,
+    "tools": 105,
+    "findings": [
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/browser.cjs",
+        "line": 1362
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/browser.cjs",
+        "line": 2720
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/browser.cjs",
+        "line": 2777
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/browser.js",
+        "line": 1263
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/browser.js",
+        "line": 2621
+      },
+      {
+        "ruleId": "MC006",
+        "severity": "low",
+        "file": "dist/browser.js",
+        "line": 2678
+      }
+    ]
+  },
+  {
+    "name": "@remotion/mcp",
+    "downloads": 48879,
+    "grade": "A",
+    "score": 100,
+    "tools": 2,
+    "findings": []
+  },
+  {
+    "name": "fetcher-mcp",
+    "downloads": 48236,
+    "grade": "B",
+    "score": 86,
+    "tools": 3,
+    "findings": [
+      {
+        "ruleId": "MC016",
+        "severity": "low",
+        "file": "build/tools/browserInstall.js",
+        "line": 1
+      },
+      {
+        "ruleId": "MC008",
+        "severity": "high",
+        "file": "package.json",
+        "line": 19
+      }
+    ]
+  },
+  {
+    "name": "@google-cloud/observability-mcp",
+    "downloads": 45371,
+    "grade": "A",
+    "score": 100,
+    "tools": 0,
+    "findings": []
+  }
+]
