@@ -3,6 +3,7 @@ description: >-
   Scan or verify MCP servers for tool-poisoning and supply-chain risks in CI.
   In verify mode it fails the build when any locked server's code or tool
   descriptions drift from what was approved (rug-pull detection).
+author: mcpguard
 branding:
   icon: shield
   color: red
@@ -23,23 +24,28 @@ inputs:
     description: "verify mode: path to the lockfile"
     required: false
     default: mcpguard.lock.json
-  version:
-    description: "mcpguard version to run"
-    required: false
-    default: latest
 
 runs:
   using: composite
   steps:
+    # Build the CLI from this action's own checked-out source so the action is
+    # fully self-contained — it does not depend on a published npm package.
     - shell: bash
       run: |
         set -euo pipefail
+        cd "$GITHUB_ACTION_PATH"
+        npm ci --no-audit --no-fund --silent
+        npm run build --silent
+    - shell: bash
+      run: |
+        set -euo pipefail
+        CLI="$GITHUB_ACTION_PATH/dist/cli.js"
         if [ "${{ inputs.mode }}" = "scan" ]; then
           if [ -z "${{ inputs.target }}" ]; then
             echo "mcpguard: 'target' is required when mode=scan" >&2
             exit 2
           fi
-          npx --yes "mcpguard@${{ inputs.version }}" scan "${{ inputs.target }}" --fail-on "${{ inputs.fail-on }}"
+          node "$CLI" scan "${{ inputs.target }}" --fail-on "${{ inputs.fail-on }}"
         else
-          npx --yes "mcpguard@${{ inputs.version }}" verify --file "${{ inputs.lockfile }}"
+          node "$CLI" verify --file "${{ inputs.lockfile }}"
         fi
