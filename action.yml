@@ -1,9 +1,6 @@
-name: mcpguard
-description: >-
-  Scan or verify MCP servers for tool-poisoning and supply-chain risks in CI.
-  In verify mode it fails the build when any locked server's code or tool
-  descriptions drift from what was approved (rug-pull detection).
-author: mcpguard
+name: MCP Guard Scanner
+description: "Scan MCP servers for tool-poisoning and supply-chain risks; fail CI when approved servers change (rug-pull check)."
+author: arunmm8335
 branding:
   icon: shield
   color: red
